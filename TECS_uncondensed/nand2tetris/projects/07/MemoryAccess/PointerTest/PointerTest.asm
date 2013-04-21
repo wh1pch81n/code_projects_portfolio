@@ -1,0 +1,135 @@
+@3030
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(3030)
+@SP
+AM=M-1
+D=M
+@THIS
+M=D
+@22222//end_pop pointer(0)
+@3040
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(3040)
+@SP
+AM=M-1
+D=M
+@THIS
+A=A+1
+M=D
+@22222//end_pop pointer(1)
+@32
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(32)
+@SP
+AM=M-1
+D=M
+@THIS
+A=M
+A=A+1
+A=A+1
+M=D
+@22222//end_pop this(2)
+@46
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(46)
+@SP
+AM=M-1
+D=M
+@THAT
+A=M
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+M=D
+@22222//end_pop that(6)
+@THIS
+D=A
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push pointer(0)
+@THIS
+D=A
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push pointer(1)
+@SP
+A=M-1
+D=M
+A=A-1
+M=M+D
+@SP
+M=M-1
+@22222//end_add(0)
+@THIS
+D=M
+@2
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push this(2)
+@SP
+A=M-1
+D=M
+A=A-1
+M=M-D
+@SP
+M=M-1
+@22222//end_sub(0)
+@THAT
+D=M
+@6
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push that(6)
+@SP
+A=M-1
+D=M
+A=A-1
+M=M+D
+@SP
+M=M-1
+@22222//end_add(0)

@@ -1,0 +1,26 @@
+<doStatement>
+	<keyword> do </keyword>
+	<callFunction>(SquareGame)
+		<identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+		<symbol> . </symbol>
+		<identifier> run </identifier>(subroutine#used#SquareGame#method)
+		<symbol> ( </symbol>
+		<expressionList>
+		</expressionList>
+		<symbol> ) </symbol>
+	</callFunction>
+	<symbol> ; </symbol>
+</doStatement>
+<doStatement>
+	<keyword> do </keyword>
+	<callFunction>(SquareGame)
+		<identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+		<symbol> . </symbol>
+		<identifier> dispose </identifier>(subroutine#used#SquareGame#method)
+		<symbol> ( </symbol>
+		<expressionList>
+		</expressionList>
+		<symbol> ) </symbol>
+	</callFunction>
+	<symbol> ; </symbol>
+</doStatement>

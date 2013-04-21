@@ -1,0 +1,1660 @@
+function SquareMatrix.new 0
+push constant 15
+call Memory.alloc 1
+pop pointer 0
+push constant 16
+pop this 0
+push constant 10
+pop this 1
+push constant 16
+pop this 2
+push this 1
+push this 2
+call Math.multiply 2
+call Array.new 1
+pop this 3
+push pointer 0
+call SquareMatrix.cleanSMatrix 1
+pop temp 0
+push constant 0
+pop this 12
+push pointer 0
+call SquareMatrix.DefaultVShape 1
+pop temp 0
+push constant 32
+pop this 14
+push pointer 0
+call SquareMatrix.drawMargins 1
+pop temp 0
+push pointer 0
+return
+function SquareMatrix.dispose 0
+push argument 0
+pop pointer 0
+push this 3
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function SquareMatrix.cleanSMatrix 2
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+call Math.multiply 2
+pop local 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push local 0
+lt
+not
+if-goto WHILE_END0
+push local 1
+push this 3
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function SquareMatrix.DefaultVShape 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+push constant 0
+pop this 6
+push constant 0
+pop this 7
+push constant 0
+pop this 8
+push constant 0
+pop this 9
+push constant 0
+pop this 10
+push constant 0
+pop this 11
+push constant 0
+return
+function SquareMatrix.isVacant 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+lt
+push argument 1
+push this 1
+lt
+not
+or
+push argument 3
+push constant 0
+lt
+push argument 3
+push this 1
+lt
+not
+or
+or
+push argument 5
+push constant 0
+lt
+push argument 5
+push this 1
+lt
+not
+or
+or
+push argument 7
+push constant 0
+lt
+push argument 7
+push this 1
+lt
+not
+or
+or
+push argument 2
+push constant 0
+lt
+push argument 2
+push this 2
+lt
+not
+or
+or
+push argument 4
+push constant 0
+lt
+push argument 4
+push this 2
+lt
+not
+or
+or
+push argument 6
+push constant 0
+lt
+push argument 6
+push this 2
+lt
+not
+or
+or
+push argument 8
+push constant 0
+lt
+push argument 8
+push this 2
+lt
+not
+or
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+return
+label IF_FALSE0
+push pointer 0
+push argument 1
+push argument 2
+call SquareMatrix.get 3
+push pointer 0
+push argument 3
+push argument 4
+call SquareMatrix.get 3
+or
+push pointer 0
+push argument 5
+push argument 6
+call SquareMatrix.get 3
+or
+push pointer 0
+push argument 7
+push argument 8
+call SquareMatrix.get 3
+or
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+return
+label IF_FALSE1
+push constant 1
+neg
+return
+function SquareMatrix.drawVShape 0
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 2
+push argument 3
+push argument 1
+call SquareMatrix.set 4
+pop temp 0
+push pointer 0
+push argument 4
+push argument 5
+push argument 1
+call SquareMatrix.set 4
+pop temp 0
+push pointer 0
+push argument 6
+push argument 7
+push argument 1
+call SquareMatrix.set 4
+pop temp 0
+push pointer 0
+push argument 8
+push argument 9
+push argument 1
+call SquareMatrix.set 4
+pop temp 0
+push constant 0
+return
+function SquareMatrix.spawnShape 1
+push argument 0
+pop pointer 0
+push argument 1
+pop this 13
+push constant 0
+pop this 12
+push this 13
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+pop this 4
+push constant 0
+pop this 8
+push constant 0
+pop this 5
+push constant 0
+pop this 9
+push constant 2
+pop this 6
+push constant 0
+pop this 10
+push constant 3
+pop this 7
+push constant 0
+pop this 11
+goto IF_END0
+label IF_FALSE0
+push this 13
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 4
+push constant 1
+pop this 8
+push constant 0
+pop this 5
+push constant 0
+pop this 9
+push constant 0
+pop this 6
+push constant 2
+pop this 10
+push constant 1
+pop this 7
+push constant 2
+pop this 11
+goto IF_END1
+label IF_FALSE1
+push this 13
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+pop this 4
+push constant 1
+pop this 8
+push constant 0
+pop this 5
+push constant 0
+pop this 9
+push constant 0
+pop this 6
+push constant 2
+pop this 10
+push constant 1
+pop this 7
+push constant 1
+pop this 11
+goto IF_END2
+label IF_FALSE2
+push constant 0
+pop this 4
+push constant 0
+pop this 8
+push constant 1
+pop this 5
+push constant 0
+pop this 9
+push constant 0
+pop this 6
+push constant 1
+pop this 10
+push constant 1
+pop this 7
+push constant 1
+pop this 11
+label IF_END2
+label IF_END1
+label IF_END0
+push pointer 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.isVacant 9
+pop local 0
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+push constant 0
+not
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.drawVShape 10
+pop temp 0
+label IF_FALSE3
+push local 0
+return
+function SquareMatrix.get 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 1
+push argument 2
+call Math.multiply 2
+add
+push this 3
+add
+pop pointer 1
+push that 0
+return
+function SquareMatrix.set 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 1
+push argument 2
+call Math.multiply 2
+add
+push this 3
+add
+push argument 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function SquareMatrix.moveShape 9
+push argument 0
+pop pointer 0
+push this 4
+push argument 1
+add
+pop local 0
+push this 8
+push argument 2
+add
+pop local 4
+push this 5
+push argument 1
+add
+pop local 1
+push this 9
+push argument 2
+add
+pop local 5
+push this 6
+push argument 1
+add
+pop local 2
+push this 10
+push argument 2
+add
+pop local 6
+push this 7
+push argument 1
+add
+pop local 3
+push this 11
+push argument 2
+add
+pop local 7
+push pointer 0
+push constant 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.drawVShape 10
+pop temp 0
+push pointer 0
+push local 0
+push local 4
+push local 1
+push local 5
+push local 2
+push local 6
+push local 3
+push local 7
+call SquareMatrix.isVacant 9
+pop local 8
+push local 8
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+pop this 4
+push local 4
+pop this 8
+push local 1
+pop this 5
+push local 5
+pop this 9
+push local 2
+pop this 6
+push local 6
+pop this 10
+push local 3
+pop this 7
+push local 7
+pop this 11
+label IF_FALSE0
+push pointer 0
+push constant 0
+not
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.drawVShape 10
+pop temp 0
+push local 8
+return
+function SquareMatrix.rotateShape 10
+push argument 0
+pop pointer 0
+push this 13
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.rotateBar 9
+pop local 8
+goto IF_END0
+label IF_FALSE0
+push this 13
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.rotateL 9
+pop local 8
+goto IF_END1
+label IF_FALSE1
+push this 13
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.rotateTriTip 9
+pop local 8
+goto IF_END2
+label IF_FALSE2
+push constant 0
+return
+label IF_END2
+label IF_END1
+label IF_END0
+push this 12
+push constant 1
+add
+pop this 12
+push constant 0
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 1
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 4
+push constant 2
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 3
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 5
+push constant 4
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 2
+push constant 5
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 6
+push constant 6
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 3
+push constant 7
+push local 8
+add
+pop pointer 1
+push that 0
+pop local 7
+push pointer 0
+push constant 0
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.drawVShape 10
+pop temp 0
+push pointer 0
+push local 0
+push local 4
+push local 1
+push local 5
+push local 2
+push local 6
+push local 3
+push local 7
+call SquareMatrix.isVacant 9
+pop local 9
+push local 9
+push constant 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 0
+pop this 4
+push local 4
+pop this 8
+push local 1
+pop this 5
+push local 5
+pop this 9
+push local 2
+pop this 6
+push local 6
+pop this 10
+push local 3
+pop this 7
+push local 7
+pop this 11
+label IF_FALSE3
+push pointer 0
+push constant 0
+not
+push this 4
+push this 8
+push this 5
+push this 9
+push this 6
+push this 10
+push this 7
+push this 11
+call SquareMatrix.drawVShape 10
+pop temp 0
+push local 8
+call Array.dispose 1
+pop temp 0
+push local 9
+return
+function SquareMatrix.rotateBar 2
+push argument 0
+pop pointer 0
+push this 12
+push constant 1
+and
+pop local 1
+push constant 8
+call Array.new 1
+pop local 0
+push constant 0
+push local 0
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 0
+add
+push argument 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 2
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 2
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE0
+push local 1
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 2
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 2
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE1
+push local 0
+return
+function SquareMatrix.rotateL 2
+push argument 0
+pop pointer 0
+push this 12
+push constant 3
+and
+pop local 1
+push constant 8
+call Array.new 1
+pop local 0
+push constant 0
+push local 0
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 0
+add
+push argument 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 2
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE0
+push local 1
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 2
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE1
+push local 1
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 2
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE2
+push local 1
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 2
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE3
+push local 0
+return
+function SquareMatrix.rotateTriTip 2
+push argument 0
+pop pointer 0
+push this 12
+push constant 3
+and
+pop local 1
+push constant 8
+call Array.new 1
+pop local 0
+push constant 0
+push local 0
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 0
+add
+push argument 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE0
+push local 1
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE1
+push local 1
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE2
+push local 1
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 2
+push local 0
+add
+push argument 3
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 0
+add
+push argument 7
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 0
+add
+push argument 8
+push constant 1
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE3
+push local 0
+return
+function SquareMatrix.merge2Floor 0
+push argument 0
+pop pointer 0
+push pointer 0
+call SquareMatrix.DefaultVShape 1
+pop temp 0
+push constant 0
+return
+function SquareMatrix.clearFullRow 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push this 2
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 0
+label WHILE_EXP1
+push local 0
+push this 1
+lt
+not
+if-goto WHILE_END1
+push pointer 0
+push local 0
+push local 1
+call SquareMatrix.get 3
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+pop local 0
+label IF_FALSE0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push this 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop local 0
+label WHILE_EXP2
+push local 0
+push this 1
+lt
+not
+if-goto WHILE_END2
+push pointer 0
+push local 0
+push local 1
+push constant 0
+call SquareMatrix.set 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP2
+label WHILE_END2
+push local 1
+push constant 1
+sub
+pop local 2
+label WHILE_EXP3
+push local 2
+push constant 0
+gt
+not
+if-goto WHILE_END3
+push constant 0
+pop local 0
+label WHILE_EXP4
+push local 0
+push this 1
+lt
+not
+if-goto WHILE_END4
+push pointer 0
+push local 0
+push local 2
+push constant 1
+add
+push pointer 0
+push local 0
+push local 2
+call SquareMatrix.get 3
+call SquareMatrix.set 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP4
+label WHILE_END4
+push local 2
+push constant 1
+sub
+pop local 2
+goto WHILE_EXP3
+label WHILE_END3
+push constant 0
+pop local 0
+label WHILE_EXP5
+push local 0
+push this 1
+lt
+not
+if-goto WHILE_END5
+push pointer 0
+push local 0
+push constant 0
+push constant 0
+call SquareMatrix.set 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP5
+label WHILE_END5
+push local 3
+push constant 1
+add
+pop local 3
+label IF_FALSE1
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 3
+return
+function SquareMatrix.getSquareSize 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function SquareMatrix.getNumColInMatrix 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function SquareMatrix.getNumRowInMatrix 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function SquareMatrix.drawMargins 0
+push argument 0
+pop pointer 0
+push constant 0
+push constant 0
+push this 14
+push constant 2
+sub
+call Screen.getMaxHeight 0
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push this 1
+call Math.multiply 2
+push this 14
+add
+push constant 1
+add
+push constant 0
+call Screen.getMaxWidth 0
+call Screen.getMaxHeight 0
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function SquareMatrix.drawTetris 4
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push local 1
+push this 2
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 0
+label WHILE_EXP1
+push local 0
+push this 1
+lt
+not
+if-goto WHILE_END1
+push local 0
+push this 0
+call Math.multiply 2
+push this 14
+add
+pop local 2
+push local 1
+push this 0
+call Math.multiply 2
+pop local 3
+push pointer 0
+push local 0
+push local 1
+call SquareMatrix.get 3
+call Screen.setColor 1
+pop temp 0
+push local 2
+push local 3
+push local 2
+push this 0
+add
+push constant 2
+sub
+push local 3
+push this 0
+add
+push constant 2
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

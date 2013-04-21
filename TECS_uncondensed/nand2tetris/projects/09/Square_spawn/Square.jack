@@ -1,0 +1,83 @@
+//Square grows from the upper left corner.  x and y refer to the upper left point
+
+class Square {
+	field int x,y;
+	field int size;
+	field boolean color;
+	
+	constructor Square new (int Ax, int Ay, int Asize){
+		let x = Ax;
+		let y = Ay;
+		let size = Asize;
+		do makeBoxFilled();
+		//do draw();
+		return this;
+	}
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+	method void draw(){
+		do Screen.setColor(true);
+		if (color){
+			do Screen.drawRectangle(x, y, x+size, y+size);
+		}
+		if (~color) {
+			do Screen.drawLine(x, y, x+size, y);
+			do Screen.drawLine(x+size, y, x+size, y+size);
+			do Screen.drawLine(x+size, y+size, x, y+size);
+			do Screen.drawLine(x, y+size, x, y);
+		}
+		return;
+	}
+	method void set_x(int val){
+		let x = val;
+		return;
+	}
+	method void set_y(int val){
+		let y = val;
+		return;
+	}
+	method void set_size(int val){
+		let size = val;
+		return;
+	}
+	method int get_x(){
+		return x;
+	}
+	method int get_y(){
+		return y;
+	}
+	method int get_size(){
+		return size;
+	}
+	method void makeBoxFilled(){
+		let color = true;
+		return;
+	}
+	method void makeBoxOutline(){
+		let color = false;
+		return;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

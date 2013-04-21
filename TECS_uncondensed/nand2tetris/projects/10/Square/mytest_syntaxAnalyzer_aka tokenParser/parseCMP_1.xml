@@ -1,0 +1,76 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>(class#def)
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> SquareGame </identifier>(class#used)
+        <identifier> game </identifier>(var#def#SquareGame#game_2_0)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> game </identifier>(var#used#SquareGame#game_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(SquareGame)
+                <identifier> SquareGame </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#SquareGame#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(SquareGame)
+            <identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> run </identifier>(subroutine#used#SquareGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(SquareGame)
+            <identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> dispose </identifier>(subroutine#used#SquareGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

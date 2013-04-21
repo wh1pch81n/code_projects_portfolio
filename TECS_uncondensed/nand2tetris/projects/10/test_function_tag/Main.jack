@@ -1,0 +1,36 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/09/Square/Main.jack
+
+/**
+ * The Main class initializes a new Square Dance game and starts it.
+ */
+class Main {
+    field int trip, fall, sky;
+    static shock ton, boom, sham;   
+      
+
+    /** Initializes a new game and starts it. */    
+    function void main() {
+        var SquareGame game;
+        var int x,y,z;    
+	var int blah;    
+        let x = 3;
+        let y = 5;
+        let z = 7;
+
+        let game = SquareGame.new();
+        do game.run();
+	do game.dispose();
+
+        let blah = x+g(game[x+2],y,-z)*5;
+	
+        return;
+    }
+    function int g(int a, int b, int c){
+	var String x;
+	let x = "paris";
+        return 0;
+    }	
+}

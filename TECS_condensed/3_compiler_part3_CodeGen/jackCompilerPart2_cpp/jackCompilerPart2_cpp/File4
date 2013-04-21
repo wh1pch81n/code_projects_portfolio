@@ -1,0 +1,61 @@
+<expressionList>
+	<expression>
+		<term>
+			<integerConstant> 2 </integerConstant>
+		</term>
+		<symbol> + </symbol>
+		<term>
+			<symbol> ( </symbol>
+				<expression>
+					<term>
+						<integerConstant> 5 </integerConstant>
+					</term>
+					<symbol> * </symbol>
+					<term>
+						<integerConstant> 3 </integerConstant>
+					</term>
+				</expression>
+			<symbol> ) </symbol>
+		</term>
+	</expression>
+	<symbol> , </symbol>
+	<expression>
+		<term>
+			<symbol> ( </symbol>
+				<expression>
+					<term>
+						<integerConstant> 2 </integerConstant>
+					</term>
+					<symbol> + </symbol>
+					<term>
+						<integerConstant> 5 </integerConstant>
+					</term>
+				</expression>
+			<symbol> ) </symbol>
+		</term>
+		<symbol> * </symbol>
+		<term>
+			<integerConstant> 3 </integerConstant>
+		</term>
+	</expression>
+	<symbol> , </symbol>
+	<expression>
+		<term>
+			<symbol> ( </symbol>
+				<expression>
+					<term>
+						<integerConstant> 2 </integerConstant>
+					</term>
+					<symbol> + </symbol>
+					<term>
+						<integerConstant> 5 </integerConstant>
+					</term>
+					<symbol> * </symbol>
+					<term>
+						<integerConstant> 3 </integerConstant>
+					</term>
+				</expression>
+			<symbol> ) </symbol>
+		</term>
+	</expression>
+</expressionList>

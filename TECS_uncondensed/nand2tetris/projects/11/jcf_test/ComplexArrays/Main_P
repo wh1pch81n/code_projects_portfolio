@@ -1,0 +1,948 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>(class#def)
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> Array </identifier>(class#used)
+        <identifier> a </identifier>(var#def#Array#a_2_0)
+        <symbol> , </symbol>
+        <identifier> b </identifier>(var#def#Array#b_2_1)
+        <symbol> , </symbol>
+        <identifier> c </identifier>(var#def#Array#c_2_2)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> a </identifier>(var#used#Array#a_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(Array)
+                <identifier> Array </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#Array#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <integerConstant> 10 </integerConstant>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(Array.new##num_arg#1)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> b </identifier>(var#used#Array#b_2_1)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(Array)
+                <identifier> Array </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#Array#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <integerConstant> 5 </integerConstant>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(Array.new##num_arg#1)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> c </identifier>(var#used#Array#c_2_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(Array)
+                <identifier> Array </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#Array#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <integerConstant> 1 </integerConstant>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(Array.new##num_arg#1)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> a </identifier>(var#used#Array#a_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 3 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 2 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> a </identifier>(var#used#Array#a_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 4 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 8 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> a </identifier>(var#used#Array#a_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 5 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 4 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> b </identifier>(var#used#Array#b_2_1)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <callArray>
+                  <identifier> a </identifier>(var#used#Array#a_2_0)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 3 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callArray>
+                <identifier> a </identifier>(var#used#Array#a_2_0)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 3 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+            <symbol> + </symbol>
+            <term>
+              <integerConstant> 3 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> a </identifier>(var#used#Array#a_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <callArray>
+                  <identifier> b </identifier>(var#used#Array#b_2_1)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <callArray>
+                        <identifier> a </identifier>(var#used#Array#a_2_0)
+                        <symbol> [ </symbol>
+                        <expression>
+                          <term>
+                            <integerConstant> 3 </integerConstant>
+                          </term>
+                        </expression>
+                        <symbol> ] </symbol>
+                      </callArray>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callArray>
+                <identifier> a </identifier>(var#used#Array#a_2_0)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <callArray>
+                      <identifier> a </identifier>(var#used#Array#a_2_0)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 5 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <callArray>
+                <identifier> b </identifier>(var#used#Array#b_2_1)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 7 </integerConstant>
+                  </term>
+                  <symbol> - </symbol>
+                  <term>
+                    <callArray>
+                      <identifier> a </identifier>(var#used#Array#a_2_0)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 3 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                  <symbol> - </symbol>
+                  <term>
+                    <callFunction>(Main)
+                      <identifier> Main </identifier>(class#used#implicit)
+                      <symbol> . </symbol>
+                      <identifier> double </identifier>(subroutine#used#Main#function)
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <integerConstant> 2 </integerConstant>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                    </callFunction>(Main.double##num_arg#1)
+                  </term>
+                  <symbol> + </symbol>
+                  <term>
+                    <integerConstant> 1 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> c </identifier>(var#used#Array#c_2_2)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <keyword> null </keyword>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> c </identifier>(var#used#Array#c_2_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callArray>
+                <identifier> c </identifier>(var#used#Array#c_2_2)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 0 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printString </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <stringConstant> Test 1 - Required result: 5, Actual result:  </stringConstant>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printString##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printInt </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <callArray>
+                    <identifier> b </identifier>(var#used#Array#b_2_1)
+                    <symbol> [ </symbol>
+                    <expression>
+                      <term>
+                        <integerConstant> 2 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                  </callArray>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printInt##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> println </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.println##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printString </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <stringConstant> Test 2 - Required result: 40, Actual result:  </stringConstant>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printString##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printInt </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <callArray>
+                    <identifier> a </identifier>(var#used#Array#a_2_0)
+                    <symbol> [ </symbol>
+                    <expression>
+                      <term>
+                        <integerConstant> 5 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                  </callArray>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printInt##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> println </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.println##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printString </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <stringConstant> Test 3 - Required result: 0, Actual result:  </stringConstant>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printString##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printInt </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <identifier> c </identifier>(var#used#Array#c_2_2)
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printInt##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> println </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.println##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> c </identifier>(var#used#Array#c_2_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <keyword> null </keyword>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+          <ifStatement>
+            <keyword> if </keyword>
+            <symbol> ( </symbol>
+            <expression>
+              <term>
+                <identifier> c </identifier>(var#used#Array#c_2_2)
+              </term>
+              <symbol> = </symbol>
+              <term>
+                <keyword> null </keyword>
+              </term>
+            </expression>
+            <symbol> ) </symbol>
+            <symbol> { </symbol>
+            <statements>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Main)
+                  <identifier> Main </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> fill </identifier>(subroutine#used#Main#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier> a </identifier>(var#used#Array#a_2_0)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <integerConstant> 10 </integerConstant>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Main.fill##num_arg#2)
+                <symbol> ; </symbol>
+              </doStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> c </identifier>(var#used#Array#c_2_2)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <callArray>
+                      <identifier> a </identifier>(var#used#Array#a_2_0)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 3 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <callArray>
+                  <identifier> c </identifier>(var#used#Array#c_2_2)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 1 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 33 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> c </identifier>(var#used#Array#c_2_2)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <callArray>
+                      <identifier> a </identifier>(var#used#Array#a_2_0)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 7 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <callArray>
+                  <identifier> c </identifier>(var#used#Array#c_2_2)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 1 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 77 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> b </identifier>(var#used#Array#b_2_1)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <callArray>
+                      <identifier> a </identifier>(var#used#Array#a_2_0)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 3 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <callArray>
+                  <identifier> b </identifier>(var#used#Array#b_2_1)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <integerConstant> 1 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <callArray>
+                      <identifier> b </identifier>(var#used#Array#b_2_1)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 1 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                  <symbol> + </symbol>
+                  <term>
+                    <callArray>
+                      <identifier> c </identifier>(var#used#Array#c_2_2)
+                      <symbol> [ </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 1 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ] </symbol>
+                    </callArray>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+            </statements>
+            <symbol> } </symbol>
+          </ifStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printString </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <stringConstant> Test 4 - Required result: 77, Actual result:  </stringConstant>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printString##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printInt </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <callArray>
+                    <identifier> c </identifier>(var#used#Array#c_2_2)
+                    <symbol> [ </symbol>
+                    <expression>
+                      <term>
+                        <integerConstant> 1 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                  </callArray>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printInt##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> println </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.println##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printString </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <stringConstant> Test 5 - Required result: 110, Actual result:  </stringConstant>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printString##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> printInt </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <callArray>
+                    <identifier> b </identifier>(var#used#Array#b_2_1)
+                    <symbol> [ </symbol>
+                    <expression>
+                      <term>
+                        <integerConstant> 1 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> ] </symbol>
+                  </callArray>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.printInt##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Output)
+            <identifier> Output </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> println </identifier>(subroutine#used#Output#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Output.println##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> int </keyword>
+    <identifier> double </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> a </identifier>(argument#def#int#a_1_0)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> a </identifier>(argument#used#int#a_1_0)
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <integerConstant> 2 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> fill </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+      <identifier> Array </identifier>
+      <identifier> a </identifier>(argument#def#Array#a_1_0)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> size </identifier>(argument#def#int#size_1_1)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+          <whileStatement>
+            <keyword> while </keyword>
+            <symbol> ( </symbol>
+            <expression>
+              <term>
+                <identifier> size </identifier>(argument#used#int#size_1_1)
+              </term>
+              <symbol> &gt; </symbol>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ) </symbol>
+            <symbol> { </symbol>
+            <statements>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> size </identifier>(argument#used#int#size_1_1)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <identifier> size </identifier>(argument#used#int#size_1_1)
+                  </term>
+                  <symbol> - </symbol>
+                  <term>
+                    <integerConstant> 1 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+              <letStatement>
+                <keyword> let </keyword>
+                <callArray>
+                  <identifier> a </identifier>(argument#used#Array#a_1_0)
+                  <symbol> [ </symbol>
+                  <expression>
+                    <term>
+                      <identifier> size </identifier>(argument#used#int#size_1_1)
+                    </term>
+                  </expression>
+                  <symbol> ] </symbol>
+                </callArray>
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <callFunction>(Array)
+                      <identifier> Array </identifier>(class#used#implicit)
+                      <symbol> . </symbol>
+                      <identifier> new </identifier>(subroutine#used#Array#function)
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <integerConstant> 3 </integerConstant>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                    </callFunction>(Array.new##num_arg#1)
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+            </statements>
+            <symbol> } </symbol>
+          </whileStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

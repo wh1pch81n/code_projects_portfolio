@@ -1,0 +1,58 @@
+<letStatement>
+	<keyword> let </keyword>
+	<identifier> blah </identifier>(var#used#int#blah_2_4)
+	<symbol> = </symbol>
+	<expression>
+		<term>
+			<identifier> x </identifier>(var#used#int#x_2_1)
+		</term>
+		<symbol> + </symbol>
+		<term>
+			<callFunction>(Main)
+                <identifier> g </identifier>(subroutine#used#Main#method)
+                <symbol> ( </symbol>
+                <expressionList>
+					<expression>
+						<term>
+							<callArray>
+								<identifier> game </identifier>(var#used#SquareGame#game_2_0)
+								<symbol> [ </symbol>
+								<expression>
+									<term>
+										<identifier> x </identifier>(var#used#int#x_2_1)
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<integerConstant> 2 </integerConstant>
+									</term>
+								</expression>
+								<symbol> ] </symbol>
+							</callArray>
+						</term>
+					</expression>
+					<symbol> , </symbol>
+					<expression>
+						<term>
+							<identifier> y </identifier>(var#used#int#y_2_2)
+						</term>
+					</expression>
+					<symbol> , </symbol>
+					<expression>
+						<term>
+							<symbol> - </symbol>
+							<term>
+								<identifier> z </identifier>(var#used#int#z_2_3)
+							</term>
+						</term>
+					</expression>
+                </expressionList>
+                <symbol> ) </symbol>
+			</callFunction>
+		</term>
+		<symbol> * </symbol>
+		<term>
+			<integerConstant> 5 </integerConstant>
+		</term>
+	</expression>
+	<symbol> ; </symbol>
+</letStatement>

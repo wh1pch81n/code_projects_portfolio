@@ -1,0 +1,252 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>(class#def)
+  <symbol> { </symbol>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> trip </identifier>(field#def#int#trip_0_0)
+    <symbol> , </symbol>
+    <identifier> fall </identifier>(field#def#int#fall_0_1)
+    <symbol> , </symbol>
+    <identifier> sky </identifier>(field#def#int#sky_0_2)
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> static </keyword>
+    <identifier> shock </identifier>(class#used)
+    <identifier> ton </identifier>(static#def#shock#ton_0_0)
+    <symbol> , </symbol>
+    <identifier> boom </identifier>(static#def#shock#boom_0_1)
+    <symbol> , </symbol>
+    <identifier> sham </identifier>(static#def#shock#sham_0_2)
+    <symbol> ; </symbol>
+  </classVarDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> SquareGame </identifier>(class#used)
+        <identifier> game </identifier>(var#def#SquareGame#game_2_0)
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> x </identifier>(var#def#int#x_2_1)
+        <symbol> , </symbol>
+        <identifier> y </identifier>(var#def#int#y_2_2)
+        <symbol> , </symbol>
+        <identifier> z </identifier>(var#def#int#z_2_3)
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> blah </identifier>(var#def#int#blah_2_4)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> x </identifier>(var#used#int#x_2_1)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 3 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> y </identifier>(var#used#int#y_2_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 5 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> z </identifier>(var#used#int#z_2_3)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 7 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> game </identifier>(var#used#SquareGame#game_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(SquareGame)
+                <identifier> SquareGame </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#SquareGame#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(SquareGame)
+            <identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> run </identifier>(subroutine#used#SquareGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(SquareGame)
+            <identifier> game </identifier>(var#used#SquareGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> dispose </identifier>(subroutine#used#SquareGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> blah </identifier>(var#used#int#blah_2_4)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> x </identifier>(var#used#int#x_2_1)
+            </term>
+            <symbol> + </symbol>
+            <term>
+              <callFunction>(Main)
+                <identifier> g </identifier>(subroutine#used#Main#method)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <callArray>
+                        <identifier> game </identifier>(var#used#SquareGame#game_2_0)
+                        <symbol> [ </symbol>
+                        <expression>
+                          <term>
+                            <identifier> x </identifier>(var#used#int#x_2_1)
+                          </term>
+                          <symbol> + </symbol>
+                          <term>
+                            <integerConstant> 2 </integerConstant>
+                          </term>
+                        </expression>
+                        <symbol> ] </symbol>
+                      </callArray>
+                    </term>
+                  </expression>
+                  <symbol> , </symbol>
+                  <expression>
+                    <term>
+                      <identifier> y </identifier>(var#used#int#y_2_2)
+                    </term>
+                  </expression>
+                  <symbol> , </symbol>
+                  <expression>
+                    <term>
+                      <symbol> - </symbol>
+                      <term>
+                        <identifier> z </identifier>(var#used#int#z_2_3)
+                      </term>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <integerConstant> 5 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> int </keyword>
+    <identifier> g </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> a </identifier>(argument#def#int#a_1_0)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> b </identifier>(argument#def#int#b_1_1)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> c </identifier>(argument#def#int#c_1_2)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> String </identifier>(class#used)
+        <identifier> x </identifier>(var#def#String#x_2_0)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> x </identifier>(var#used#String#x_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant> paris </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

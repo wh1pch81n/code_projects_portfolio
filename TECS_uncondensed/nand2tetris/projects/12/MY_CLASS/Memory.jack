@@ -1,0 +1,125 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * Memory operations library.
+ */ 
+class Memory {
+	//static int arr0, arr1, arr2;
+	static int lastIndexAllocated;
+	static int heapBase, heapEnd, maxBlocks, blockSize;
+    /** Initializes memory parameters. */
+    function void init() {
+		let heapBase= 2048;
+		let heapEnd= 16384;
+		let maxBlocks= Math.rightShiftby( heapEnd - heapBase, 2);
+		let blockSize= 4; // number of lines that make up a block of 8 bytes
+
+		//do Memory.poke( Memory.heapBase(), Memory.maxBlocks());
+		let heapBase[0] = maxBlocks;
+		do Memory.deAlloc( heapBase + 1); // ensure all memory is free
+		let lastIndexAllocated = 0;
+		return;
+    }
+	
+	function int numBlocksToAllocate(int n){
+		return Math.rightShiftby(n, 2)+ 1;
+	}
+	/** At the time of this writing there are 14336 lines of RAM for the heap.
+		I decided to break it up in to blocks.  1 block equals 8 bytes and on
+		the jack platform it would be 4 lines.  This means the heap has 3584 
+		blocks.  The below function lets you call an index between 0 and 3583.
+		and it will return the address of that block in memory.
+	*/
+	function int BlockAddr( int index){ 
+		if ( index < 0) { return -1; }
+		if(index > (maxBlocks -1)) { do Sys.error( 20);}
+		return ( heapBase + (index + index + index+ index) ); 
+	} 
+	function boolean isFreeBlock(int block_index){
+		var int peeker;
+		let peeker = Memory.BlockAddr(block_index);
+		if( 0= ( peeker[0])){ return true;}
+		return false;
+	}
+    /** Returns the value of the main memory at the given address. */
+    function int peek(int address) {
+		return address[0];
+    }
+
+    /** Sets the value of the main memory at this address
+     *  to the given value. */
+    function void poke(int address, int value) {
+		let address[0] = value;
+		return;
+	}
+
+    /** finds and allocates from the heap a memory block of the 
+     *  specified size and returns a reference to its base address. */
+    function int alloc(int size) {
+		var int blocks, addrOfBlockHeader;
+		if(size < 1){ do Sys.error(23);}// size should be greater than zero. 
+		let blocks = Memory.numBlocksToAllocate(size);
+		let addrOfBlockHeader = Memory.findSegmentOfApproprateSize(blocks);
+		if( (addrOfBlockHeader < 0)){
+			//Try to find a good memory segment one more time.
+			let addrOfBlockHeader = Memory.findSegmentOfApproprateSize(blocks);
+		}
+		if( (addrOfBlockHeader < 0) ){
+			do Sys.error(21); // unable to allocate  
+		}
+		//Set block Header.  Header tells how many blocks are possessed
+		//do Memory.poke( addrOfBlockHeader, blocks);
+		let addrOfBlockHeader[0] = blocks;
+		//addr of Block header plus one shall be the reference to object
+		return addrOfBlockHeader + 1;
+    }
+
+    /** De-allocates the given object and frees its space. */
+    function void deAlloc(int object) {
+		var int blocks, addrOfBlockHeader, i;
+		let addrOfBlockHeader = object -1;
+		let blocks = addrOfBlockHeader[0];
+		let i = 0;
+		while( i < blocks){
+			let  addrOfBlockHeader[0]= 0;
+			let addrOfBlockHeader = addrOfBlockHeader + blockSize;
+			let i = i + 1;
+		}
+		//let lastIndexAllocated = 0;//when things are deallocated set this to heap begining to retrieve any openings
+		return;
+	}   
+	function int findSegmentOfApproprateSize( int numBlocks){
+		var boolean found;
+		var int streak, i, peeker;
+		let i = lastIndexAllocated;
+		let found = false;
+		while( ( i < maxBlocks) & (~found )){
+			if( Memory.isFreeBlock( i)) { //found an empty header
+				let streak = streak +1;
+			}else{ // found an occupied header
+				let streak = 0;
+				//found out how many blocks are being occupied
+				//and use it to skip the occupied region
+				let peeker = Memory.BlockAddr( i);
+				let i = i + peeker[0] -1;
+			}
+			if( streak = numBlocks){
+				let found = true;
+			}
+			let i = i + 1;
+		}
+		//address of Block header of found segment
+		if( ~found){ 
+			let i = -1;
+			let lastIndexAllocated = 0; //Set the search back to the beginning of the heap.
+		}else{
+			let i = i - numBlocks;
+			let lastIndexAllocated = i;//Make the start of the search begin at the previously allocated block.
+		}
+		
+		return Memory.BlockAddr(i);
+	}
+}

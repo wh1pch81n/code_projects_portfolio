@@ -1,0 +1,189 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>(class#def)
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> Array </identifier>(class#used)
+        <identifier> arr </identifier>(var#def#Array#arr_2_0)
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> String </identifier>(class#used)
+        <identifier> name </identifier>(var#def#String#name_2_1)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> name </identifier>(var#used#String#name_2_1)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant> a </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> arr </identifier>(var#used#Array#arr_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(Array)
+                <identifier> Array </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> new </identifier>(subroutine#used#Array#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <integerConstant> 10 </integerConstant>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(Array.new##num_arg#1)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> arr </identifier>(var#used#Array#arr_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 111 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> arr </identifier>(var#used#Array#arr_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 3 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 333 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> arr </identifier>(var#used#Array#arr_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 9 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callArray>
+                <identifier> arr </identifier>(var#used#Array#arr_2_0)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 0 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <callArray>
+            <identifier> arr </identifier>(var#used#Array#arr_2_0)
+            <symbol> [ </symbol>
+            <expression>
+              <term>
+                <integerConstant> 9 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ] </symbol>
+          </callArray>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callArray>
+                <identifier> arr </identifier>(var#used#Array#arr_2_0)
+                <symbol> [ </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 0 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ] </symbol>
+              </callArray>
+            </term>
+            <symbol> + </symbol>
+            <term>
+              <callFunction>(Main)
+                <identifier> g </identifier>(subroutine#used#Main#method)
+                <symbol> ( </symbol>
+                <expressionList>
+                  <expression>
+                    <term>
+                      <integerConstant> 888 </integerConstant>
+                    </term>
+                  </expression>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(Main.g##num_arg#1)
+            </term>
+            <symbol> * </symbol>
+            <term>
+              <integerConstant> 5 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

@@ -1,0 +1,10 @@
+class Main{
+	function void main() {
+		var Square_game game;
+		let game = Square_game.new();
+		do game.run();
+		do game.dispose();
+        return;
+    }
+
+}

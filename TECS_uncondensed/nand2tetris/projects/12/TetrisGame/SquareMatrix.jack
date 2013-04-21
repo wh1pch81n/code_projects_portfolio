@@ -1,0 +1,431 @@
+/** square matrix **/
+
+class SquareMatrix{
+	field int _squareSize, _width, _height ;
+	field Array _sMatrix;
+	//field VirtualSquare _VS0,_VS1,_VS2, _VS3; // VS0 is the main virtual square.  Movements and  rotations work around it
+	field int _VS0X,_VS1X,_VS2X, _VS3X;
+	field int _VS0Y,_VS1Y,_VS2Y, _VS3Y;
+	field int _rotationVal,_shape;
+	field int _L_Margin_width;
+	constructor SquareMatrix new(){ 
+		let _squareSize = 16;
+		let _width = 10;
+		let _height = 16;
+		let _sMatrix = Array.new( _width * _height);
+		do cleanSMatrix();
+		let _rotationVal = 0;
+		do DefaultVShape();
+		let _L_Margin_width = 32;//draw a margin 32 bits wide
+		do drawMargins();
+		return this;
+	}
+	method void dispose(){
+		do _sMatrix.dispose();
+		do Memory.deAlloc(this);
+		return;
+	}
+	method void cleanSMatrix(){
+		var int wh, i;
+		let wh = _width * _height;
+		let i = 0;
+		while( i < wh){
+			let _sMatrix[ i] = 0;
+			let i = i + 1;
+		}
+		return;
+	}
+	method void DefaultVShape(){
+		let _VS0X = 0;
+		let _VS1X = 0;
+		let _VS2X = 0;
+		let _VS3X = 0;
+		let _VS0Y = 0;
+		let _VS1Y = 0;
+		let _VS2Y = 0;
+		let _VS3Y = 0;
+		return;
+	}
+	/*compares shape to the smarix.  if area is vacant return true, false otherwise
+	return: 
+		-1 out of bounds
+		0 vacant 
+		+1 touching pile of V shapes 
+	*/
+	method int isVacant(int VS0X, int VS0Y, 
+							int VS1X, int VS1Y, 
+							int VS2X, int VS2Y,
+							int VS3X, int VS3Y){
+		if( ((VS0X < 0 ) | (~(VS0X < _width)))	|
+			((VS1X < 0 ) | (~(VS1X < _width)))	|
+			((VS2X < 0 ) | (~(VS2X < _width)))	|
+			((VS3X < 0 ) | (~(VS3X < _width)))	|
+			
+			((VS0Y < 0 ) | (~(VS0Y < _height)))	|
+			((VS1Y < 0 ) | (~(VS1Y < _height)))	|
+			((VS2Y < 0 ) | (~(VS2Y < _height)))	|
+			((VS3Y < 0 ) | (~(VS3Y < _height)))	
+			){
+				return 1;  //out of bounds
+			}
+		if( ~(	get(VS0X,VS0Y) |
+				get(VS1X,VS1Y) |
+				get(VS2X,VS2Y) |
+				get(VS3X,VS3Y) 
+			)){
+			return 0; //in a vacant place
+		}
+		return -1; //Collision VShape pile
+	}
+	/*Draw virtual shape to the sMatrix 
+	 light is the value that will set the matrix value
+	 light of true will set it to on
+	*/
+	method void drawVShape(boolean light, 
+							int VS0X, int VS0Y, 
+							int VS1X, int VS1Y, 
+							int VS2X, int VS2Y,
+							int VS3X, int VS3Y){
+		do set(VS0X, VS0Y, light);
+		do set(VS1X, VS1Y, light);
+		do set(VS2X, VS2Y, light);
+		do set(VS3X, VS3Y, light);
+		return;
+	}
+	/**spawns a shape in the top left of square matrix.  If spawning is 
+	successful, then return 0, if it failed then return 1 or  -1 
+	@param shape: 1 is a bar
+					2 is an L
+					3 is a tritip
+					else is a 2x2 square
+	**/
+	method int spawnShape( int shape){
+		var int vacant_v;
+		let _shape = shape;
+		let _rotationVal = 0;
+		if( _shape = 1){ //if begin
+			let _VS0X = 1; let _VS0Y = 0; //init bar 
+			let _VS1X = 0; let _VS1Y = 0;
+			let _VS2X = 2; let _VS2Y = 0;
+			let _VS3X = 3; let _VS3Y = 0;
+		}else{if( _shape = 2){ //init L
+			let _VS0X = 0; let _VS0Y = 1;
+			let _VS1X = 0; let _VS1Y = 0;
+			let _VS2X = 0; let _VS2Y = 2;
+			let _VS3X = 1; let _VS3Y = 2;
+		}else{if( _shape = 3){ //init tritip 
+			let _VS0X = 0; let _VS0Y = 1;
+			let _VS1X = 0; let _VS1Y = 0;
+			let _VS2X = 0; let _VS2Y = 2;
+			let _VS3X = 1; let _VS3Y = 1;
+		}else{ //init square
+			let _VS0X = 0; let _VS0Y = 0;
+			let _VS1X = 1; let _VS1Y = 0;
+			let _VS2X = 0; let _VS2Y = 1;
+			let _VS3X = 1; let _VS3Y = 1;
+		}}} //end if 
+		
+		//check the square matrix for vacancy
+		let vacant_v = isVacant(_VS0X, _VS0Y,
+								_VS1X, _VS1Y ,
+								_VS2X, _VS2Y ,
+								_VS3X, _VS3Y );
+		if( vacant_v = 0){
+			//ok to add
+			do drawVShape(true,
+						_VS0X, _VS0Y,
+						_VS1X, _VS1Y,
+						_VS2X, _VS2Y,
+						_VS3X, _VS3Y);
+		}
+		return vacant_v;
+	}
+	
+	//get the value stored in the 2d squarematrix
+	//return: a value of false means nothing occupied
+	//  a value of true means it has a thing there.
+	method boolean get( int x, int y){
+		return _sMatrix[ x + ( _width * y )];
+	}
+	method void set(int x, int y, boolean lit){
+		let _sMatrix[ x + (_width * y)] = lit;return;
+	}
+	
+	/* moves shape along sMatrix.  First it tries to see if it is possible to move there.
+	return:
+		-1 -> future movement collides with VShape Pile
+		0 -> future movement ok
+		+1 -> future movement out of bounds
+	
+	Use this value to know if a piece has met a collision
+	*/
+	method int moveShape( int dx, int dy){
+		var int VS0X,VS1X,VS2X, VS3X;
+		var int VS0Y,VS1Y,VS2Y, VS3Y;
+		var int vacant_v;
+		//load future values into temp
+		let VS0X = _VS0X +dx; let VS0Y = _VS0Y +dy; 
+		let VS1X = _VS1X +dx; let VS1Y = _VS1Y +dy;
+		let VS2X = _VS2X +dx; let VS2Y = _VS2Y +dy;
+		let VS3X = _VS3X +dx; let VS3Y = _VS3Y +dy;
+		//erase current presence from _sMatrix
+		do drawVShape(false, _VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		//check if future values may vacate the spot
+		let vacant_v = isVacant( VS0X,  VS0Y, VS1X,  VS1Y, VS2X,  VS2Y, VS3X,  VS3Y);
+		if (vacant_v=0){ 
+			//let future values set current values 
+			let _VS0X = VS0X; let _VS0Y = VS0Y; 
+			let _VS1X = VS1X; let _VS1Y = VS1Y;
+			let _VS2X = VS2X; let _VS2Y = VS2Y;
+			let _VS3X = VS3X; let _VS3Y = VS3Y;
+		}
+		//paint new presence onto _sMatrix
+		do drawVShape(true, _VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		return vacant_v;
+	}
+	
+	/*follows a similar pattern as move shape, except it rotates, instead of moving in terms of dx and dy.
+		return:
+		+1 -> future presence out of bounds
+		0  -> future presence ok
+		-1 -> future presence collides with VShape Pile 
+	*/
+	method int rotateShape(){
+		var int VS0X,VS1X,VS2X, VS3X;
+		var int VS0Y,VS1Y,VS2Y, VS3Y;
+		var Array futureRotateArr;
+		var int vacant_v;
+		if( _shape = 1){ //if begin 
+			let futureRotateArr = rotateBar(_VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		}else{if( _shape = 2){
+			let futureRotateArr = rotateL(_VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		}else{if( _shape = 3){
+			let futureRotateArr = rotateTriTip(_VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		}else{ 
+			// squares don't rotate...
+			return 0;
+		}}} //end if 	
+		//increment rotational value 
+		let _rotationVal = _rotationVal + 1;
+		//load future values into temp
+		let VS0X = futureRotateArr[0]; let VS0Y = futureRotateArr[1]; 
+		let VS1X = futureRotateArr[2]; let VS1Y = futureRotateArr[3];
+		let VS2X = futureRotateArr[4]; let VS2Y = futureRotateArr[5];
+		let VS3X = futureRotateArr[6]; let VS3Y = futureRotateArr[7];
+		
+		//Erase current presence from _sMatrix
+		do drawVShape(false, _VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		
+		//check if future values may vacate the spot
+		//if vacant then return true, false otherwise
+		let vacant_v = isVacant( VS0X,  VS0Y, VS1X,  VS1Y, VS2X,  VS2Y, VS3X,  VS3Y);
+		if ( vacant_v = 0){
+			
+			//let future values set current values 
+			let _VS0X = VS0X; let _VS0Y = VS0Y; 
+			let _VS1X = VS1X; let _VS1Y = VS1Y;
+			let _VS2X = VS2X; let _VS2Y = VS2Y;
+			let _VS3X = VS3X; let _VS3Y = VS3Y;
+			
+		}
+		//Paint new presence onto _sMatrix 
+		do drawVShape(true, _VS0X,  _VS0Y, _VS1X,  _VS1Y, _VS2X,  _VS2Y, _VS3X,  _VS3Y);
+		//clean up
+		do futureRotateArr.dispose();
+		return vacant_v;
+	}
+	/** (rotateBar) brief: returns a dynamically allocated array
+	rotateBar sketch	
+		[VS1][VS0][VS2][VS3] _rotationVal is 0
+	
+		[VS1]
+		[VS0] _rotationVal is 1 
+		[VS2]
+		[VS3] 
+	**/
+	method Array rotateBar(int VS0X, int VS0Y, int VS1X, int VS1Y, int VS2X, int VS2Y, int VS3X, int VS3Y){ 	
+		var Array arr;
+		var int mask;
+		let mask = _rotationVal & 1;
+		let arr = Array.new(8);
+		let arr[0] = VS0X; let arr[1] = VS0Y; // the center is the pivot, it doesn't move during rotation
+		if( mask = 0){ //horizontal to vertical 
+			let arr[2] = VS1X +1; let arr[3] = VS1Y -1;
+			let arr[4] = VS2X -1; let arr[5] = VS2Y +1;
+			let arr[6] = VS3X -2; let arr[7] = VS3Y +2;
+		}
+		if( mask = 1){//vertical to horizontal 
+			let arr[2] = VS1X -1; let arr[3] = VS1Y +1;
+			let arr[4] = VS2X +1; let arr[5] = VS2Y -1;
+			let arr[6] = VS3X +2; let arr[7] = VS3Y -2;
+		}
+		return arr;
+	}
+	/** (rotateL) brief: returns a dynamically allocated array
+	rotateL sketch
+		[VS1] 		// #0
+		[VS0]	
+		[VS2][VS3]		
+
+					[VS3]  //#1
+		[VS1][VS0][VS2]
+		
+		[VS3][VS2]	//#2
+			 [VS0]
+			 [VS1]
+			 
+		[VS2][VS0][VS1] //#3
+		[VS3]
+		**/
+	method Array rotateL(int VS0X, int VS0Y, int VS1X, int VS1Y, int VS2X, int VS2Y, int VS3X, int VS3Y) {
+		var Array arr;
+		var int mask;
+		let mask =_rotationVal & 3;
+		let arr = Array.new(8);
+		let arr[0] = VS0X; let arr[1] = VS0Y; //This is the center pivot, it doesn't move during rotation
+		if(mask = 0){ //#0 to #1
+			let arr[2] = VS1X -1; let arr[3] = VS1Y +1;
+			let arr[4] = VS2X +1; let arr[5] = VS2Y -1;
+			let arr[6] = VS3X; let arr[7] = VS3Y -2;
+		}if(mask = 1){ //#1 to #2
+			let arr[2] = VS1X +1; let arr[3] = VS1Y +1;
+			let arr[4] = VS2X -1; let arr[5] = VS2Y -1;
+			let arr[6] = VS3X-2; let arr[7] = VS3Y;
+		}if(mask = 2){ //#2 to 3
+			let arr[2] = VS1X+1; let arr[3] = VS1Y-1;
+			let arr[4] = VS2X-1; let arr[5] = VS2Y+1;
+			let arr[6] = VS3X; let arr[7] = VS3Y+2;
+		}if(mask = 3){ //#3 to 0
+			let arr[2] = VS1X-1; let arr[3] = VS1Y-1;
+			let arr[4] = VS2X+1; let arr[5] = VS2Y+1;
+			let arr[6] = VS3X+2; let arr[7] = VS3Y;
+		}
+		return arr;
+	}
+		/** (rotateTriTip) brief: returns a dynamically allocated array
+		rotateTriTip sketch
+		[VS1]
+		[VS0][VS3]	//#0
+		[VS2]		
+
+			 [VS3]
+		[VS1][VS0][VS2]		//#1
+		
+			 [VS2]
+		[VS3][VS0]		//#2
+			 [VS1]
+			 
+		[VS2][VS0][VS1]		//#3
+			 [VS3]
+		**/
+	method Array rotateTriTip(int VS0X, int VS0Y, int VS1X, int VS1Y, int VS2X, int VS2Y, int VS3X, int VS3Y){
+		var Array arr;
+		var int mask;
+		let mask = _rotationVal & 3;
+		let arr = Array.new(8);
+		let arr[0] = VS0X; let arr[1] = VS0Y;//this is the pivot, it does not move in the rotation
+		if( mask = 0){//#0 to #1
+			let arr[2] = VS1X-1; let arr[3] = VS1Y+1;
+			let arr[4] = VS2X+1; let arr[5] = VS2Y-1;
+			let arr[6] = VS3X-1; let arr[7] = VS3Y-1;
+		}if( mask = 1){//#1 to #2
+			let arr[2] = VS1X+1; let arr[3] = VS1Y+1;
+			let arr[4] = VS2X-1; let arr[5] = VS2Y-1;
+			let arr[6] = VS3X-1; let arr[7] = VS3Y+1;
+		}if(mask = 2){//#2 to #3
+			let arr[2] = VS1X+1; let arr[3] = VS1Y-1;
+			let arr[4] = VS2X-1; let arr[5] = VS2Y+1;
+			let arr[6] = VS3X+1; let arr[7] = VS3Y+1;
+		}if(mask = 3){//#3 to #0
+			let arr[2] = VS1X-1; let arr[3] = VS1Y-1;
+			let arr[4] = VS2X+1; let arr[5] = VS2Y+1;
+			let arr[6] = VS3X+1; let arr[7] = VS3Y-1;
+		}
+		return arr;
+	}
+	
+	/*(merge2floor)brief: reference to falling VShape is bequeathed to the floor.
+	
+	Leave VShape in current position on the _sMatrix.  References to Vshape are set
+	to default values.
+	*/
+	method void merge2Floor(){
+		do DefaultVShape();
+		return;
+	}
+	/*(clearFullRow) brief: checks VShapes piled up on the floor for complete rows. 
+		if found it will set that row to all zeros. all row values above will be shifted down by one.
+		@return: the number of rows just cleared.  usefull if keeping track of score.
+	*/
+	method int clearFullRow(){
+		var int x, y, iy, score;
+		let y = 0;
+		while( y < _height){ 
+			let x = 0;
+			while( x < _width){
+				if( ~get(x,y)){//not a full bar
+					let x = _width;//this is a substitute for the "continue" command commonly found in other HLL
+				}
+				let x = x + 1;
+			}
+			//if x is equal to _width then it is a full bar.
+			//if x is greater than _width then it isn't a full bar.
+			if( x = _width){
+				//clear the current row.
+				let x = 0;
+				while( x < _width){
+					do set(x, y, false);
+					let x = x+ 1;
+				}
+				//shift all the above down to fill up vaccant row.
+				let iy = y -1;
+				while( iy > 0){
+					let x = 0;
+					while( x < _width){
+						do set( x, iy + 1, get( x , iy));
+						let x = x + 1;
+					}
+					let iy = iy -1;
+				}
+				//handle the top most row 
+				let x = 0;
+				while( x < _width){
+					do set( x, 0, false);
+					let x = x + 1;
+				}
+				let score = score + 1;
+			}
+			let y = y + 1;
+		}
+		return score;
+	}
+	
+	/**used by the graphics control to determine how large a square will be drawn**/
+	method int getSquareSize(){ return _squareSize;}
+	method int getNumColInMatrix(){ return _width;}
+	method int getNumRowInMatrix(){ return _height;}
+
+	method void drawMargins(){
+		do Screen.drawRectangle( 0, 0, _L_Margin_width -2, Screen.getMaxHeight());//left margin
+		
+		do Screen.drawRectangle( _squareSize * _width + _L_Margin_width+1, 0, Screen.getMaxWidth(), Screen.getMaxHeight());//right margin
+		return;
+	}
+	method void drawTetris(){
+		var int x, y, offsetx, offsety;
+		
+		while( y < _height){
+			let x = 0;
+			while( x < _width){
+				let offsetx  = (x * _squareSize) + _L_Margin_width;
+				let offsety = (y * _squareSize);
+				do Screen.setColor( get(x, y));
+				do Screen.drawRectangle( offsetx, offsety, offsetx + _squareSize -2, offsety + _squareSize -2);
+				let x = x + 1;
+			}
+			let y = y + 1;
+		}
+		return;
+	}
+	
+}

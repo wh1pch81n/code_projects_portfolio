@@ -1,0 +1,429 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Screen.jack
+
+/**
+ * Graphic screen library.
+ */
+class Screen {
+	static Array arrMask;
+	static boolean color;
+	static int maxScreen, screenBase, maxWidth, maxHeight;
+    /** Initializes the Screen. */
+    function void init() {
+		var int i, v ;
+		let color = true;
+		let arrMask = Array.new( 17);
+		let i = 0;
+		let v = -1;
+		while( i < 17){
+			let arrMask[i] = v;
+			let i = i +1;
+			let v = v + v;
+		}
+		let maxScreen= 8192; //the number of Memory slots dedicated to the screen memory map
+		let screenBase= 16384; // the start of the screen memory map
+		let maxWidth= 512;
+		let maxHeight= 256;
+		return;
+    }
+	function int getMaxWidth(){ return maxWidth;}
+	function int getMaxHeight(){ return maxHeight;}
+	
+	/** Erases the whole screen. */
+    function void clearScreen() {
+		var int i;
+		let i = 0;
+		while( i < maxScreen){
+			//do Memory.poke( screenBase + i, 0);
+			let screenBase[i] = 0;
+			let i = i + 1;
+		}
+		return;
+    }
+
+    /** Sets the color to be used in further draw commands
+     *  where white = false, black = true. */
+    function void setColor(boolean b) {
+		let color = b;
+		return;
+    }
+
+    /** Draws the (x, y) pixel. */
+    function void drawPixel(int x, int y) {
+		var int addr, column, value;
+		if( (y < 0) | 
+			(x < 0) | 
+			(~(y <  maxHeight )) | 
+			(~(x <  maxWidth   )) ) 
+			{ return;} //ignore drawing outside of screen 
+		//only draw stuff when its on the screen
+		//let addr = Screen.screenBase() + ( y*32) + ( x/16);
+		//let column = Math.mod( x, 16);
+		let addr = screenBase + Math.leftShiftby( y, 5) + Math.rightShiftby( x, 4);
+		let column =  x & 15; // mask with 0x000f to simulate mod 16
+		
+		if( color){
+			//let value = Math.setbit( addr[0] , column);
+			let value = (addr[0])| ((~(arrMask[column]))+1);
+		}else{
+			//let value = Math.clearbit( addr[0] , column);
+			let value = (addr[0])& (~((~(arrMask[column]))+1));
+		}
+		//do Memory.poke( addr, value);
+		let addr[0] = value;
+		return;
+    }
+
+    /** Draws a line from (x1, y1) to (x2, y2). */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+		/*var int midx, midy;
+		var int midx1, midy1;
+		var int midx2, midy2;
+		var int res;
+		let res = 6;
+		let midx =Math.rightShiftby(x2+x1, 1);
+		let midy =Math.rightShiftby(y2+y1, 1);
+		
+		let midx1 =Math.rightShiftby(midx+x1, 1);
+		let midy1 =Math.rightShiftby(midy+y1, 1);
+		
+		let midx2 =Math.rightShiftby(x2+midx, 1);
+		let midy2 =Math.rightShiftby(y2+midy, 1);
+		*/
+		if( y1 = y2){
+			//do Screen.drawHorizontalLine(Math.min(x1, x2), y1, Math.max(x1,x2), y1);
+			do Screen.drawRectangle( x1, y1, x2, y2);
+		}else{if( x1 = x2){
+			//I think the fast lines aren't good at vertical lines.  
+			//If its bad a it then I need to make a special function for vertial lines.
+			//Althought i probably should do it anyways since it would be more simple.
+			//I think a draw rectangle would suffice as a nice patch.
+			do Screen.drawRectangle( x1, y1, x2, y2);
+		}else{
+			do Screen.bresenham_lines(x1, y1, x2, y2);
+			/*
+			if( (Math.abs( x1-x2) + Math.abs(y1-y2) < 200)){
+			do Screen.FAST_LINES( x1, y1, x2, y2);
+			}else{	
+				do Screen.FAST_LINES(    x1,   y1, midx1, midy1);
+				do Screen.FAST_LINES( midx1,midy1,  midx,  midy);
+				do Screen.FAST_LINES(  midx, midy, midx2, midy2);
+				do Screen.FAST_LINES( midx2,midy2,    x2,    y2);
+			}
+			*/
+		}}
+		
+		return;
+    }
+
+	
+    /** Draws a filled rectangle where the top left corner
+     *  is (x1, y1) and the bottom right corner is (x2, y2). */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+		var int TLX, TLY;
+		var int TRX, TRY;
+		var int BLX, BLY;
+		var int BRX, BRY;
+		var int startmm, endmm;
+		var int i;
+		let TLX = Math.min( x1, x2); let TLY = Math.min( y1,y2); 
+		let BRX = Math.max(x1, x2); let BRY = Math.max(y1, y2);
+		let TRX = Math.max(x1,x2); let TRY = Math.min(y1,y2);
+		let BLX = Math.min(x1,x2); let BLY = Math.max(y1,y2);
+		
+		//set bountry codes
+		if( TLX < 0) { let TLX = 0; let BLX = 0;} if(~(TLX< maxWidth)){ return;}
+		if( TLY < 0) { let TLY = 0; let TRY = 0;} if(~(TLY< maxHeight)){ return;}
+
+		if( BRX < 0) { return;} if(~(BRX< maxWidth)){ let BRX = maxWidth-1; let TRX = BRX;}
+		if( BRY < 0) { return;} if(~(BRY< maxHeight)){ let BRY = maxHeight-1; let BLY = BRY;}
+		
+		let startmm = screenBase + ( Math.leftShiftby(TLY, 5)) + ( Math.rightShiftby(TLX, 4));
+		let endmm = screenBase + ( Math.leftShiftby(TRY, 5)) + ( Math.rightShiftby(TRX, 4));
+		while ( ~(TLY > BLY)){
+			if( (endmm - startmm) > 1){
+				do Screen.drawMultBars( startmm + 1, endmm -1);
+			}
+			do Screen.drawPartialBar( TLX, TLY, TRX, TRY, startmm, endmm); 
+			let startmm = startmm + 32; //there are 32 bars per rows, this will bring it down a row
+			let endmm = endmm + 32;
+			let TLY = TLY + 1;
+		}
+		
+		return;
+    }
+	function void drawCircle( int x0, int y0, int r){
+		do Screen._drawCircle( x0, y0, r, true);//filled circle 
+		return;
+	}
+	function void drawCircleUnFilled( int x0, int y0, int r){
+		do Screen._drawCircle( x0, y0, r, false);//filled circle 
+		return;
+	}
+    /** Draws a filled circle of radius r around (cx, cy). */
+    function void _drawCircle(int x0, int y0, int r, boolean filled_circle) {
+		var int f, ddfx, ddfy, x,y;
+		var int x0mx, x0my, x0px, x0py;
+		var int y0mx, y0my, y0px, y0py;
+		let f = 1-r;
+		let ddfx = 1;
+		let ddfy= -(r+r);
+		let x = 0;
+		let y = r;
+		
+		if( filled_circle){
+			do Screen.drawHorizontalLine( x0-r, y0, x0+r, y0);
+		}else{
+			do Screen.drawPixel( x0-r, y0);
+			do Screen.drawPixel( x0+r, y0);
+			do Screen.drawPixel( x0, y0+r);
+			do Screen.drawPixel( x0, y0-r);
+		}
+		while ( x < y){
+			//ddfx == 2*x+1
+			//ddfy == -2 * y;
+			//f == x*x + y*y - r*r + 2*x -y + 1
+			if( ~(f < 0)){
+				let y = y-1;
+				let ddfy = ddfy + 2;
+				let f = f + ddfy;
+			}
+			let x = x+1;
+			let ddfx = ddfx+2;
+			let f = f + ddfx;
+			
+			let  x0mx = x0 -x;
+			let  x0my = x0 -y;
+			let  x0px = x0 +x; 
+			let  x0py = x0 +y;
+			let y0mx = y0 -x;
+			let  y0my = y0 - y; 
+			let  y0px = y0 + x;
+			let  y0py = y0 + y;
+			
+			if( filled_circle){
+				do Screen.drawHorizontalLine( x0mx, y0py, x0px, y0py);
+				do Screen.drawHorizontalLine( x0mx, y0my, x0px, y0my);
+				do Screen.drawHorizontalLine( x0my, y0px, x0py, y0px);
+				do Screen.drawHorizontalLine( x0my, y0mx, x0py, y0mx);
+			}else{
+				do Screen.drawPixel( x0px, y0py);
+				do Screen.drawPixel( x0mx, y0py);
+						
+				do Screen.drawPixel( x0px, y0my);
+				do Screen.drawPixel( x0mx, y0my);
+						
+				do Screen.drawPixel( x0py, y0px);
+				do Screen.drawPixel( x0my, y0px);
+						
+				do Screen.drawPixel( x0py, y0mx);
+				do Screen.drawPixel( x0my, y0mx);
+			}
+		}
+		return;
+    }
+	//===================================
+	    /** Draws an empty circle of radius r around (cx, cy). */
+   /* function void drawCircleUnFilled(int x0, int y0, int r) {
+		var int f, ddfx, ddfy, x,y;
+		let f = 1-r;
+		let ddfx = 1;
+		let ddfy= -(r+r);
+		let x = 0;
+		let y = r;
+		
+		do Screen.drawPixel( x0, y0 + r); // down
+		do Screen.drawPixel( x0, y0 -r); // up
+		do Screen.drawPixel( x0 + r, y0); //right
+		do Screen.drawPixel( x0 - r, y0); //left
+		
+		while ( x < y){
+			//ddfx == 2*x+1
+			//ddfy == -2 * y;
+			//f == x*x + y*y - r*r + 2*x -y + 1
+			if( ~(f < 0)){
+				let y = y-1;
+				let ddfy = ddfy + 2;
+				let f = f + ddfy;
+			}
+			let x = x+1;
+			let ddfx = ddfx+2;
+			let f = f + ddfx;
+			
+			do Screen.drawPixel( x0+x, y0+y);
+			do Screen.drawPixel( x0-x, y0+y);
+						
+			do Screen.drawPixel( x0+x, y0-y);
+			do Screen.drawPixel( x0-x, y0-y);
+						
+			do Screen.drawPixel( x0+y, y0+x);
+			do Screen.drawPixel( x0-y, y0+x);
+						
+			do Screen.drawPixel( x0+y, y0-x);
+			do Screen.drawPixel( x0-y, y0-x);
+			
+		}
+		return;
+    }
+	*/
+	//===================================
+	//private use
+	//assumes that the memory map is between screenBase and (screenBase + 8196)
+	//assumes that the two arguments are each a full bar
+	//assumes first is left of last
+	function void drawMultBars( int firstFullMMap, int lastFullMMap) {	
+		while( ~(firstFullMMap > lastFullMMap) ){
+			let firstFullMMap[0] = color; //draw on the screen
+			let firstFullMMap = firstFullMMap + 1;
+		}
+		return;
+	}
+	//assumes this is a horizontal line
+	//assumes going from left to right;
+	function void drawHorizontalLine(int x1, int y1, int x2, int y2){
+		var int startmm, endmm;
+		if( ~(y2=y1)){
+			//choose general purpose line drawing 
+			do Screen.drawLine( x1, y1, x2, y2);
+			return;
+		}
+		if( (y1 < 0) | (~(y2 < maxHeight))){return;}//nothing to draw since it is not on screen.
+		if( x1 < 0) { let x1 = 0;}
+		if( ~(x2 < maxWidth)){ let x2 = maxWidth - 1;}
+		//
+		let startmm = screenBase + ( Math.leftShiftby(y1, 5)) + ( Math.rightShiftby(x1, 4));
+		let endmm = screenBase + ( Math.leftShiftby(y2, 5)) + ( Math.rightShiftby(x2, 4));
+		
+		if( (endmm - startmm) > 1){
+			do Screen.drawMultBars( startmm + 1, endmm -1);
+		}
+		do Screen.drawPartialBar( x1, y1, x2, y2, startmm, endmm);
+		return;
+	}
+	function void drawPartialBar( int x1, int y1, int x2, int y2, int startmm, int endmm){
+		var int a , b, c;
+		if( ((x2 & 15)-(x1 & 15)) = 15){ 
+			let startmm[0] =  color; 
+			return;
+		}
+		let a = arrMask[x1 & 15];
+		let b = arrMask[(x2 & 15) +1];
+		let c = a & (~b);
+		if( startmm = endmm){
+			if(color){
+				
+				let startmm[0]= startmm[0] | ( c);
+			}else{
+				let startmm[0]= startmm[0] & (~c);
+			}
+		}else{
+			if(color){
+				let startmm[0]= startmm[0] | a;
+				let endmm[0]= endmm[0] | (~b);
+			}else{
+				let startmm[0]= startmm[0] & (~a);
+				let endmm[0]= endmm[0] & b;
+			}
+		}
+		
+		/*
+		if( startmm = endmm){
+			if(color){
+				do Memory.poke( startmm, Memory.peek(startmm) | ((arrMask[x1 & 15]) & (~(arrMask[(x2 & 15) +1]))));
+			}else{
+				do Memory.poke( startmm, Memory.peek(startmm) & ((~(arrMask[x1 & 15])) | (arrMask[(x2 & 15) +1])));
+			}
+		}else{
+			if(color){
+				do Memory.poke( startmm, Memory.peek(startmm) | arrMask[x1 & 15]);
+				do Memory.poke( endmm, Memory.peek(endmm) | (~(arrMask[(x2 & 15)+1])));
+			}else{
+				do Memory.poke( startmm, Memory.peek(startmm) & (~(arrMask[x1 & 15])));
+				do Memory.poke( endmm, Memory.peek(endmm) & arrMask[(x2 & 15)+1]);
+			}
+		}
+		*/
+		
+		return;
+	}
+	
+	//super fast line drawing algorithm
+	//found at : http://www.simppa.fi/blog/extremely-fast-line-algorithm-as3-optimized/
+	/* 
+	function void FAST_LINES( int x, int y, int x2, int y2){
+		var int shortLen, longLen, inc, i, bitwidthMinus1;
+		var boolean yLonger;
+		let bitwidthMinus1 = 15; //since ints on a hack system are 16
+		let shortLen = y2-y;
+		let longLen = x2-x;
+		
+		if(( Math.XOR(shortLen, Math.rightShiftby( shortLen, bitwidthMinus1)) - Math.rightShiftby(shortLen, bitwidthMinus1))
+			>
+			( Math.XOR( longLen, Math.rightShiftby( longLen,  bitwidthMinus1)) - Math.rightShiftby( longLen, bitwidthMinus1)))
+		{	//swap shortLen and longLen
+			let shortLen = Math.XOR( shortLen, longLen);
+			let longLen = Math.XOR( longLen, shortLen);
+			let shortLen = Math.XOR( shortLen, longLen);
+
+			let yLonger = true;
+		}else{
+			let yLonger = false;
+		}
+		if( longLen < 0){
+			let inc = -1;
+		}else{
+			let inc = 1;
+		}
+
+		let i = 0;
+		while( ~(i = longLen)){
+			if (yLonger) {	
+				if( longLen = 0){
+					do Screen.drawPixel(x + (i*shortLen), y+i);// 
+				}else{
+					do Screen.drawPixel(x + (i*shortLen/longLen), y+i);
+				}
+			}else{
+				if( longLen = 0){
+					do Screen.drawPixel(x + i, y+(i*shortLen));// 
+				}else{
+					do Screen.drawPixel(x + i, y+(i*shortLen/longLen));//
+				}
+			}
+			let i = i + inc;
+		}
+		return;
+	}
+	*/
+	
+	function void bresenham_lines( int x0, int y0, int x1, int y1){
+		var int dx, dy, sx, sy, err;
+		var boolean notdone;
+		let dx = Math.abs( x1-x0);
+		let dy = Math.abs( y1-y0);
+		let sx = -1;
+		let sy = -1;
+		if( x0 < x1){ let sx = 1;}
+		if( y0 < y1){ let sy = 1;}
+		let err = dx-dy;
+		
+		let notdone = true;
+		while( notdone){
+			do Screen.drawPixel(x0,y0);
+			if( (x0 = x1) | ( y0 = y1)){
+				return;
+			}
+			if( ~((err+err) < (-dy))){
+				let err = err -dy;
+				let x0 = x0 + sx;
+			}
+			if( ~((err+err) > dx)){
+				let err = err + dx;
+				let y0 = y0 + sy;
+			}
+		}
+		return;
+	}
+}

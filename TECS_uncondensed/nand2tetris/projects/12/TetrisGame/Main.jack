@@ -1,0 +1,8 @@
+/* Main class for the tetris game */
+
+class Main{
+	function void main(){
+		do TetrisGameControl.runGame();
+		return;
+	}
+}

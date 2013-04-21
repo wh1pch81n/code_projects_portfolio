@@ -1,0 +1,103 @@
+@111
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(111)
+@333
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(333)
+@888
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push constant(888)
+@SP
+AM=M-1
+D=M
+@R16
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+A=A+1
+M=D
+@22222//end_pop static(8)
+@SP
+AM=M-1
+D=M
+@R16
+A=A+1
+A=A+1
+A=A+1
+M=D
+@22222//end_pop static(3)
+@SP
+AM=M-1
+D=M
+@R16
+A=A+1
+M=D
+@22222//end_pop static(1)
+@R16
+D=A
+@3
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push static(3)
+@R16
+D=A
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push static(1)
+@SP
+A=M-1
+D=M
+A=A-1
+M=M-D
+@SP
+M=M-1
+@22222//end_sub(0)
+@R16
+D=A
+@8
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@22222//end_push static(8)
+@SP
+A=M-1
+D=M
+A=A-1
+M=M+D
+@SP
+M=M-1
+@22222//end_add(0)

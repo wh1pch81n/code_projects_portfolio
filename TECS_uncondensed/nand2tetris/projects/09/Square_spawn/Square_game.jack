@@ -1,0 +1,55 @@
+class Square_game{
+	field Square sq;
+	constructor Square_game new(){
+		return this;
+	}
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+	method void run(){
+		var int state;
+		let state = 0;
+		while(true){
+			let state = spawn_sm(state);
+			//start "draw buffer"
+			do Screen.clearScreen();
+			if (~(state = 2)){ //if in dispose state, do not draw 
+				do sq.draw();
+			}
+			//end "draw buffer"
+			
+			//wait in order to set games speed
+			do Sys.wait(500);//delay by 100 miliseconds
+		}
+		return;
+	}	
+	method int spawn_sm(int st){
+		var int next_st;
+		
+		if(st = 0){ //spawn
+			let next_st = 1;
+			let sq = Square.new(10, 0, 30); // place square  at (10,0)
+		}
+		if(st = 1){//move square down
+			do sq.set_y(sq.get_y() + 7);
+			if( (sq.get_y()) < (250 - sq.get_size())){
+				let next_st = 1;
+			} else {
+				let next_st = 2;
+			}
+		}
+		if(st = 2){//dispose of square
+			let next_st = 3;
+			//do st.set_y(0);
+			do sq.dispose();
+		}
+		if(st = 3){//wait repeat
+			let next_st = 0;
+			do Sys.wait(5);
+		}
+		
+		return next_st;
+	}
+
+}

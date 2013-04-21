@@ -1,0 +1,897 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Bat </identifier>(class#def)
+  <symbol> { </symbol>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> x </identifier>(field#def#int#x_0_0)
+    <symbol> , </symbol>
+    <identifier> y </identifier>(field#def#int#y_0_1)
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> width </identifier>(field#def#int#width_0_2)
+    <symbol> , </symbol>
+    <identifier> height </identifier>(field#def#int#height_0_3)
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> direction </identifier>(field#def#int#direction_0_4)
+    <symbol> ; </symbol>
+  </classVarDec>
+  <subroutineDec>
+    <keyword> constructor </keyword>
+    <identifier> Bat </identifier>(class#used)
+    <identifier> new </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> Ax </identifier>(argument#def#int#Ax_1_0)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> Ay </identifier>(argument#def#int#Ay_1_1)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> Awidth </identifier>(argument#def#int#Awidth_1_2)
+      <symbol> , </symbol>
+      <keyword> int </keyword>
+      <identifier> Aheight </identifier>(argument#def#int#Aheight_1_3)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> x </identifier>(field#used#int#x_0_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Ax </identifier>(argument#used#int#Ax_1_0)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> y </identifier>(field#used#int#y_0_1)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Ay </identifier>(argument#used#int#Ay_1_1)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> width </identifier>(field#used#int#width_0_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Awidth </identifier>(argument#used#int#Awidth_1_2)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> height </identifier>(field#used#int#height_0_3)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Aheight </identifier>(argument#used#int#Aheight_1_3)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> direction </identifier>(field#used#int#direction_0_4)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <integerConstant> 2 </integerConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Bat)
+            <identifier> show </identifier>(subroutine#used#Bat#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Bat.show##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <keyword> this </keyword>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> dispose </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Memory)
+            <identifier> Memory </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> deAlloc </identifier>(subroutine#used#Memory#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <keyword> this </keyword>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Memory.deAlloc##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> show </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Screen)
+            <identifier> Screen </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> setColor </identifier>(subroutine#used#Screen#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <keyword> true </keyword>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Screen.setColor##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Bat)
+            <identifier> draw </identifier>(subroutine#used#Bat#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Bat.draw##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> hide </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Screen)
+            <identifier> Screen </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> setColor </identifier>(subroutine#used#Screen#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <keyword> false </keyword>
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Screen.setColor##num_arg#1)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Bat)
+            <identifier> draw </identifier>(subroutine#used#Bat#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Bat.draw##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> draw </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Screen)
+            <identifier> Screen </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> drawRectangle </identifier>(subroutine#used#Screen#function)
+            <symbol> ( </symbol>
+            <expressionList>
+              <expression>
+                <term>
+                  <identifier> x </identifier>(field#used#int#x_0_0)
+                </term>
+              </expression>
+              <symbol> , </symbol>
+              <expression>
+                <term>
+                  <identifier> y </identifier>(field#used#int#y_0_1)
+                </term>
+              </expression>
+              <symbol> , </symbol>
+              <expression>
+                <term>
+                  <identifier> x </identifier>(field#used#int#x_0_0)
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <identifier> width </identifier>(field#used#int#width_0_2)
+                </term>
+              </expression>
+              <symbol> , </symbol>
+              <expression>
+                <term>
+                  <identifier> y </identifier>(field#used#int#y_0_1)
+                </term>
+                <symbol> + </symbol>
+                <term>
+                  <identifier> height </identifier>(field#used#int#height_0_3)
+                </term>
+              </expression>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Screen.drawRectangle##num_arg#4)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> setDirection </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> Adirection </identifier>(argument#def#int#Adirection_1_0)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> direction </identifier>(field#used#int#direction_0_4)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Adirection </identifier>(argument#used#int#Adirection_1_0)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> getLeft </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> x </identifier>(field#used#int#x_0_0)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> int </keyword>
+    <identifier> getRight </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> x </identifier>(field#used#int#x_0_0)
+            </term>
+            <symbol> + </symbol>
+            <term>
+              <identifier> width </identifier>(field#used#int#width_0_2)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> setWidth </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+      <keyword> int </keyword>
+      <identifier> Awidth </identifier>(argument#def#int#Awidth_1_0)
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Bat)
+            <identifier> hide </identifier>(subroutine#used#Bat#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Bat.hide##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> width </identifier>(field#used#int#width_0_2)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <identifier> Awidth </identifier>(argument#used#int#Awidth_1_0)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(Bat)
+            <identifier> show </identifier>(subroutine#used#Bat#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(Bat.show##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> move </identifier>(subroutine#def#Bat)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+          <ifStatement>
+            <keyword> if </keyword>
+            <symbol> ( </symbol>
+            <expression>
+              <term>
+                <identifier> direction </identifier>(field#used#int#direction_0_4)
+              </term>
+              <symbol> = </symbol>
+              <term>
+                <integerConstant> 1 </integerConstant>
+              </term>
+            </expression>
+            <symbol> ) </symbol>
+            <symbol> { </symbol>
+            <statements>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> x </identifier>(field#used#int#x_0_0)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <identifier> x </identifier>(field#used#int#x_0_0)
+                  </term>
+                  <symbol> - </symbol>
+                  <term>
+                    <integerConstant> 4 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> x </identifier>(field#used#int#x_0_0)
+                    </term>
+                    <symbol> &lt; </symbol>
+                    <term>
+                      <integerConstant> 0 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statements>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> x </identifier>(field#used#int#x_0_0)
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 0 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statements>
+                  <symbol> } </symbol>
+                </ifStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> setColor </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword> false </keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.setColor##num_arg#1)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> drawRectangle </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <symbol> ( </symbol>
+                        <expression>
+                          <term>
+                            <identifier> x </identifier>(field#used#int#x_0_0)
+                          </term>
+                          <symbol> + </symbol>
+                          <term>
+                            <identifier> width </identifier>(field#used#int#width_0_2)
+                          </term>
+                        </expression>
+                        <symbol> ) </symbol>
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <integerConstant> 1 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <symbol> ( </symbol>
+                        <expression>
+                          <term>
+                            <identifier> x </identifier>(field#used#int#x_0_0)
+                          </term>
+                          <symbol> + </symbol>
+                          <term>
+                            <identifier> width </identifier>(field#used#int#width_0_2)
+                          </term>
+                        </expression>
+                        <symbol> ) </symbol>
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <integerConstant> 4 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <identifier> height </identifier>(field#used#int#height_0_3)
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.drawRectangle##num_arg#4)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> setColor </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword> true </keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.setColor##num_arg#1)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> drawRectangle </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier> x </identifier>(field#used#int#x_0_0)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> x </identifier>(field#used#int#x_0_0)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <integerConstant> 3 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <identifier> height </identifier>(field#used#int#height_0_3)
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.drawRectangle##num_arg#4)
+                <symbol> ; </symbol>
+              </doStatement>
+            </statements>
+            <symbol> } </symbol>
+            <keyword> else </keyword>
+            <symbol> { </symbol>
+            <statements>
+              <letStatement>
+                <keyword> let </keyword>
+                <identifier> x </identifier>(field#used#int#x_0_0)
+                <symbol> = </symbol>
+                <expression>
+                  <term>
+                    <identifier> x </identifier>(field#used#int#x_0_0)
+                  </term>
+                  <symbol> + </symbol>
+                  <term>
+                    <integerConstant> 4 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> ; </symbol>
+              </letStatement>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> x </identifier>(field#used#int#x_0_0)
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <identifier> width </identifier>(field#used#int#width_0_2)
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                    <symbol> &gt; </symbol>
+                    <term>
+                      <integerConstant> 511 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statements>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> x </identifier>(field#used#int#x_0_0)
+                      <symbol> = </symbol>
+                      <expression>
+                        <term>
+                          <integerConstant> 511 </integerConstant>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                          <identifier> width </identifier>(field#used#int#width_0_2)
+                        </term>
+                      </expression>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                  </statements>
+                  <symbol> } </symbol>
+                </ifStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> setColor </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword> false </keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.setColor##num_arg#1)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> drawRectangle </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <identifier> x </identifier>(field#used#int#x_0_0)
+                      </term>
+                      <symbol> - </symbol>
+                      <term>
+                        <integerConstant> 4 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> x </identifier>(field#used#int#x_0_0)
+                      </term>
+                      <symbol> - </symbol>
+                      <term>
+                        <integerConstant> 1 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <identifier> height </identifier>(field#used#int#height_0_3)
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.drawRectangle##num_arg#4)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> setColor </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <keyword> true </keyword>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.setColor##num_arg#1)
+                <symbol> ; </symbol>
+              </doStatement>
+              <doStatement>
+                <keyword> do </keyword>
+                <callFunction>(Screen)
+                  <identifier> Screen </identifier>(class#used#implicit)
+                  <symbol> . </symbol>
+                  <identifier> drawRectangle </identifier>(subroutine#used#Screen#function)
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <symbol> ( </symbol>
+                        <expression>
+                          <term>
+                            <identifier> x </identifier>(field#used#int#x_0_0)
+                          </term>
+                          <symbol> + </symbol>
+                          <term>
+                            <identifier> width </identifier>(field#used#int#width_0_2)
+                          </term>
+                        </expression>
+                        <symbol> ) </symbol>
+                      </term>
+                      <symbol> - </symbol>
+                      <term>
+                        <integerConstant> 3 </integerConstant>
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> x </identifier>(field#used#int#x_0_0)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <identifier> width </identifier>(field#used#int#width_0_2)
+                      </term>
+                    </expression>
+                    <symbol> , </symbol>
+                    <expression>
+                      <term>
+                        <identifier> y </identifier>(field#used#int#y_0_1)
+                      </term>
+                      <symbol> + </symbol>
+                      <term>
+                        <identifier> height </identifier>(field#used#int#height_0_3)
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </callFunction>(Screen.drawRectangle##num_arg#4)
+                <symbol> ; </symbol>
+              </doStatement>
+            </statements>
+            <symbol> } </symbol>
+          </ifStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

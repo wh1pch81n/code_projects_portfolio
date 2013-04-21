@@ -1,0 +1,92 @@
+/** a test file that will test the new stuff that you added to math
+and to test the string class that you made*/
+
+class Main{
+	function void main (){
+		var int a, b, c, dx, dy, x, y;
+		var int j;
+		var String str, temp_str;
+		let a = 36;
+		let b = 11;
+		let dx = 10;
+		let dy = 15;
+		let x = 0;
+		let y = 0;
+		///
+//do Screen.drawPixel( x, y );
+//do Screen.drawPixel( x + dx, y );
+//do Screen.drawPixel( x + dx, y + dy );
+//do Screen.drawPixel( x, y + dy);
+// m  positive
+ do Screen.drawLine( 0,0,511, 255);
+// m negative
+ do Screen.drawLine( 0, 255, 511, 0);
+///	
+
+	do Memory.poke( 16384, 0);//0
+		do Memory.poke( 16384 +1, 1);//1
+		do Memory.poke( 16384 +2, 2);//2
+		do Memory.poke( 16384 +3, 4);//3
+		do Memory.poke( 16384+4, 8);//4
+		do Memory.poke( 16384+5, 16);//5
+		do Memory.poke( 16384+6, 32);//6
+		do Memory.poke( 16384+7, 64);//7
+		do Memory.poke( 16384+8, 128);//8
+		do Memory.poke( 16384+9, 256);//9
+		do Memory.poke( 16384+10, 512);//10
+		do Memory.poke( 16384+11, 1024);//11
+		do Memory.poke( 16384+12, 2048);//12
+		do Memory.poke( 16384+13, 4096);//13
+		do Memory.poke( 16384+14, 8192);//14
+		do Memory.poke( 16384+15, 16384);//15
+		do Memory.poke( 16384+16, 16384 + 16384);//16
+		///
+		let c = Math.mod( a , b); // 36 mod 11 is 3
+		let temp_str = "";
+		do temp_str.setInt(a);
+		do Output.printString(temp_str);
+		do temp_str.dispose();
+		let temp_str = " mod 11 is ";
+		do Output.printString(temp_str);
+		do temp_str.dispose(); let temp_str = "";
+		do temp_str.setInt( c );
+		do temp_str.setInt( temp_str.intValue());
+		do Output.printString( temp_str);
+		do temp_str.dispose();let temp_str = "";
+		do Output.println();
+		///
+		let c = Math.mod( b, a); // 11 mod 36 is 11
+		let temp_str = "11 mod 36 is ";
+		do Output.printString(temp_str);
+		do temp_str.dispose();let temp_str = "";
+		do temp_str.setInt( c );
+		do Output.printString( temp_str);
+		do temp_str.dispose();let temp_str = ",";
+		do Output.println();
+		///
+		let str = "012345"; //used this string because I known 0 is 48
+		do Output.printString(str);
+		do Output.println();
+		let j = 0;
+		while ( j < str.length()){
+			do Output.printChar(str.charAt(j)); // will place char in a temp should get "0,1,2,3,4,5,"	
+			do Output.printString( temp_str);
+			let j = j + 1;
+		}
+		do Output.println();
+		//test append
+		do str.appendChar(107);
+		do Output.printString(str);
+		do Output.println();
+		//test erase last letter
+		do str.eraseLastChar();
+		do Output.printString(str);
+		do Output.println();
+		
+		//house keeping
+		do str.dispose();
+		do temp_str.dispose();
+		
+		return;
+	}
+}

@@ -1,0 +1,76 @@
+<class>								<class>								
+  <keyword> class </keyword>					  <keyword> class </keyword>								
+  <identifier> Main </identifier>(class#def)		      |	  <identifier> Main </identifier>								
+  <symbol> { </symbol>						  <symbol> { </symbol>								
+  <subroutineDec>						  <subroutineDec>								
+    <keyword> function </keyword>				    <keyword> function </keyword>								
+    <keyword> void </keyword>					    <keyword> void </keyword>								
+    <identifier> main </identifier>(subroutine#def#Main)      |	    <identifier> main </identifier>								
+    <symbol> ( </symbol>					    <symbol> ( </symbol>								
+    <parameterList>						    <parameterList>								
+    </parameterList>						    </parameterList>								
+    <symbol> ) </symbol>					    <symbol> ) </symbol>								
+    <subroutineBody>						    <subroutineBody>								
+      <symbol> { </symbol>					      <symbol> { </symbol>								
+      <varDec>							      <varDec>								
+        <keyword> var </keyword>				        <keyword> var </keyword>								
+        <identifier> SquareGame </identifier>(class#used)     |	        <identifier> SquareGame </identifier>								
+        <identifier> game </identifier>(var#def#SquareGame#ga |	        <identifier> game </identifier>								
+        <symbol> ; </symbol>					        <symbol> ; </symbol>								
+      </varDec>							      </varDec>								
+      <statements>						      <statements>								
+        <letStatement>						        <letStatement>								
+          <keyword> let </keyword>				          <keyword> let </keyword>								
+          <identifier> game </identifier>(var#used#SquareGame |	          <identifier> game </identifier>								
+          <symbol> = </symbol>					          <symbol> = </symbol>								
+          <expression>						          <expression>								
+            <term>						            <term>								
+              <callFunction>(SquareGame)		      |	              <identifier> SquareGame </identifier>								
+                <identifier> SquareGame </identifier>(class#u <
+                <symbol> . </symbol>				              <symbol> . </symbol>								
+                <identifier> new </identifier>(subroutine#use |	              <identifier> new </identifier>								
+                <symbol> ( </symbol>				              <symbol> ( </symbol>								
+                <expressionList>				              <expressionList>								
+                </expressionList>				              </expressionList>								
+                <symbol> ) </symbol>				              <symbol> ) </symbol>								
+              </callFunction>				      <
+            </term>						            </term>								
+          </expression>						          </expression>								
+          <symbol> ; </symbol>					          <symbol> ; </symbol>								
+        </letStatement>						        </letStatement>								
+        <doStatement>						        <doStatement>								
+          <keyword> do </keyword>				          <keyword> do </keyword>								
+          <callFunction>(SquareGame)			      |	          <identifier> game </identifier>								
+            <identifier> game </identifier>(var#used#SquareGa <
+            <symbol> . </symbol>				          <symbol> . </symbol>								
+            <identifier> run </identifier>(subroutine#used#Sq |	          <identifier> run </identifier>								
+            <symbol> ( </symbol>				          <symbol> ( </symbol>								
+            <expressionList>					          <expressionList>								
+            </expressionList>					          </expressionList>								
+            <symbol> ) </symbol>				          <symbol> ) </symbol>								
+          </callFunction>				      <
+          <symbol> ; </symbol>					          <symbol> ; </symbol>								
+        </doStatement>						        </doStatement>								
+        <doStatement>						        <doStatement>								
+          <keyword> do </keyword>				          <keyword> do </keyword>								
+          <callFunction>(SquareGame)			      |	          <identifier> game </identifier>								
+            <identifier> game </identifier>(var#used#SquareGa <
+            <symbol> . </symbol>				          <symbol> . </symbol>								
+            <identifier> dispose </identifier>(subroutine#use |	          <identifier> dispose </identifier>								
+            <symbol> ( </symbol>				          <symbol> ( </symbol>								
+            <expressionList>					          <expressionList>								
+            </expressionList>					          </expressionList>								
+            <symbol> ) </symbol>				          <symbol> ) </symbol>								
+          </callFunction>				      <
+          <symbol> ; </symbol>					          <symbol> ; </symbol>								
+        </doStatement>						        </doStatement>								
+        <returnStatement>					        <returnStatement>								
+          <keyword> return </keyword>				          <keyword> return </keyword>								
+          <symbol> ; </symbol>					          <symbol> ; </symbol>								
+        </returnStatement>					        </returnStatement>								
+      </statements>						      </statements>								
+      <symbol> } </symbol>					      <symbol> } </symbol>								
+    </subroutineBody>						    </subroutineBody>								
+  </subroutineDec>						  </subroutineDec>								
+  <symbol> } </symbol>						  <symbol> } </symbol>								
+</class>							</class>								

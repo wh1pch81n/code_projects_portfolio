@@ -1,0 +1,89 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>(class#def)
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>(subroutine#def#Main)
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> PongGame </identifier>(class#used)
+        <identifier> game </identifier>(var#def#PongGame#game_2_0)
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(PongGame)
+            <identifier> PongGame </identifier>(class#used#implicit)
+            <symbol> . </symbol>
+            <identifier> newInstance </identifier>(subroutine#used#PongGame#function)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(PongGame.newInstance##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> game </identifier>(var#used#PongGame#game_2_0)
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <callFunction>(PongGame)
+                <identifier> PongGame </identifier>(class#used#implicit)
+                <symbol> . </symbol>
+                <identifier> getInstance </identifier>(subroutine#used#PongGame#function)
+                <symbol> ( </symbol>
+                <expressionList>
+                </expressionList>
+                <symbol> ) </symbol>
+              </callFunction>(PongGame.getInstance##num_arg#0)
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(PongGame)
+            <identifier> game </identifier>(var#used#PongGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> run </identifier>(subroutine#used#PongGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(PongGame.run##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <callFunction>(PongGame)
+            <identifier> game </identifier>(var#used#PongGame#game_2_0#implicit)
+            <symbol> . </symbol>
+            <identifier> dispose </identifier>(subroutine#used#PongGame#method)
+            <symbol> ( </symbol>
+            <expressionList>
+            </expressionList>
+            <symbol> ) </symbol>
+          </callFunction>(PongGame.dispose##num_arg#0)
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

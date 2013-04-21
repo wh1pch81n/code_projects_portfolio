@@ -1,0 +1,11 @@
+<letStatement>
+<keyword> let </keyword>
+<identifier> blah </identifier>(var#used#String#blah_2_4)
+<symbol> = </symbol>
+<expression>
+<term>
+<stringConstant> 0123456 </stringConstant>
+</term>
+</expression>
+	<symbol> ; </symbol>
+</letStatement>

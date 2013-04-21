@@ -1,0 +1,48 @@
+<letStatement>
+	<keyword> let </keyword>
+	<callArray>
+		<identifier> arr </identifier>(var#used#Array#arr_2_0)
+		<symbol> [ </symbol>
+		<expression>
+			<term>
+                <integerConstant> 9 </integerConstant>
+			</term>
+		</expression>
+		<symbol> ] </symbol>
+	</callArray>
+	<symbol> = </symbol>
+	<expression>
+		<term>
+			<callArray>
+                <identifier> arr </identifier>(var#used#Array#arr_2_0)
+                <symbol> [ </symbol>
+                <expression>
+					<term>
+						<integerConstant> 0 </integerConstant>
+					</term>
+                </expression>
+                <symbol> ] </symbol>
+			</callArray>
+		</term>
+		<symbol> + </symbol>
+		<term>
+			<callFunction>(Main)
+                <identifier> g </identifier>(subroutine#used#Main#method)
+                <symbol> ( </symbol>
+                <expressionList>
+					<expression>
+						<term>
+							<integerConstant> 888 </integerConstant>
+						</term>
+					</expression>
+                </expressionList>
+                <symbol> ) </symbol>
+			</callFunction>(Main.g##num_arg#1)
+		</term>
+		<symbol> * </symbol>
+		<term>
+			<integerConstant> 5 </integerConstant>
+		</term>
+	</expression>
+	<symbol> ; </symbol>
+</letStatement>

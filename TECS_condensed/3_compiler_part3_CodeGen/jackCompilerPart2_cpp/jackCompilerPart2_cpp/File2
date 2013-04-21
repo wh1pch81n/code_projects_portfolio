@@ -1,0 +1,30 @@
+<expression>
+	<term>
+		<callFunction>(Square)
+			<identifier> Square </identifier>(class#used#implicit)
+			<symbol> . </symbol>
+			<identifier> new </identifier>(subroutine#used#Square#function)
+			<symbol> ( </symbol>
+			<expressionList>
+				<expression>
+					<term>
+					<integerConstant> 0 </integerConstant>
+					</term>
+				</expression>
+				<symbol> , </symbol>
+				<expression>
+					<term>
+					<integerConstant> 0 </integerConstant>
+					</term>
+				</expression>
+				<symbol> , </symbol>
+				<expression>
+					<term>
+					<integerConstant> 30 </integerConstant>
+					</term>
+				</expression>
+			</expressionList>
+			<symbol> ) </symbol>
+		</callFunction>(num_arg#3)
+	</term>
+</expression>

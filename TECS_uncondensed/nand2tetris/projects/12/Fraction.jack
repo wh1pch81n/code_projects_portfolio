@@ -1,0 +1,68 @@
+class Fraction {
+	field int n,d;
+	constructor Fraction new(int num, int den ){
+		let n = num;
+		let d = den;
+		return this;
+	}
+	constructor Fraction HARD_COPY( Fraction f){
+		let n = f.getNumerator();
+		let d = f.getDenominator();
+		return this;
+	}
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+	method int getNumerator(){ return n;}
+	method int getDenominator(){ return d;}
+	method void setNumerator( int a){ let n = a; return;}
+	method void setDenominator(int a){ let d = a; return;}
+	
+	method void addFractions( Fraction a, Fraction b){
+		var int tn,td, tgcd;
+		var boolean isNeg;
+		let isNeg = false;
+		
+		let tn = (b.getDenominator() * a.getNumerator()) + (a.getDenominator()*b.getNumerator());
+		let td = a.getDenominator() * b.getDenominator();
+		
+		if( tn < 0){ let isNeg = ~isNeg; let tn = -tn;}
+		if( td < 0){ let isNeg = ~isNeg; let td = -td;}
+		
+		if( tn = td){
+			do setNumerator( 1);
+			do setDenominator(1);
+		}else{
+			if ( tn > td){
+				let tgcd = Math.GCD( tn, td);
+			}else{
+				let tgcd = Math.GCD(td, tn);
+			}
+			do setNumerator( tn/tgcd);
+			do setDenominator( td/tgcd);
+		}
+		if(isNeg){
+			do setNumerator( - (getNumerator()));
+		}
+		return;
+	}
+	/*when the numerator is greater than the denominator it would be wise to separate the whole from the fraction
+		breif: separates the whole from the fraction then modifies the given fraction to hold only the fractional stuff
+		param:  this fraction will be modified until it resembles a fraction
+		return: the whole number part;
+		ie.
+	*/
+	method int extractWholeFromFractionAndModifyGivenFraction( ){
+		var int whole;
+		let whole = getNumerator()/ getDenominator();
+		do setNumerator(Math.mod(getNumerator(), getDenominator()) );
+
+		return whole;
+	}
+	method int extractWholeFromFraction(){
+		return getNumerator()/ getDenominator();
+	}
+	
+
+}

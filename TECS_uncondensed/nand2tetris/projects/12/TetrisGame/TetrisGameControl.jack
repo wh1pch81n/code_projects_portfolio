@@ -1,0 +1,144 @@
+/* Tetris Game Control */
+
+class TetrisGameControl{
+	static SquareMatrix _smatrix;
+	
+	/*Runs the game of tetris until user quits the game*/
+	function void runGame(){
+		var String strGameOver;
+		var char prevKey, currKey;
+		var boolean end;
+		var int count_v, fall_delay_c;
+		var int psuedoRandom, score;
+		var int currState, nextState;
+		var int e_reset, e_quit, e_idle, e_naturalFall, e_dropDown, e_rotate, e_moveLeft, e_moveRight, e_drawTetris, e_merge, e_gameOver;
+		
+		//initialize
+		let fall_delay_c = 2000;// number of ticks to endure before naturally falling
+		let end = false;
+		let nextState = e_reset;//starting state
+		let strGameOver = "Final Score: ";
+		
+		//name all states
+		let e_reset = 0;
+		let e_quit = 1;
+		let e_idle = 2;
+		let e_naturalFall = 3;
+		let e_dropDown = 4;
+		let e_rotate = 5;
+		let e_moveLeft = 6;
+		let e_moveRight = 7;
+		let e_drawTetris = 8;
+		let e_merge = 9;
+		let e_gameOver = 10;
+		
+		while( ~end ){
+			/**sync*/
+			let currState = nextState;
+			//let prevKey = currKey;
+						
+			/** transitions and outputs */
+			if( currState = e_reset){
+				if( ~(_smatrix = null)){
+					do _smatrix.dispose();
+				}	
+				let _smatrix = SquareMatrix.new();
+				let score = 0;
+				let nextState = e_merge;//....
+			}
+			if( currState = e_quit){
+				let end = true;
+				//should end loop so no next state required
+			}
+			if( currState = e_idle){
+				
+				let count_v = count_v + 1;
+				let psuedoRandom = psuedoRandom +1;
+				
+				let prevKey = currKey;
+				let currKey = Keyboard.keyPressed();
+				
+				if(  count_v > fall_delay_c){
+					let nextState = e_naturalFall;
+				}else{
+					
+					//if( ~(currKey = 0)){ 
+					//	let psuedoRandom = psuedoRandom + 1;
+					//}
+					if( prevKey = 0){
+						if( currKey = 133 ){	let nextState = e_dropDown;} //pressed down arrow
+						if( currKey = 131 ){	let nextState = e_rotate;} //pressed up arrow
+						if( currKey = 130 ){	let nextState = e_moveLeft;} //pressed left arrow
+						if( currKey = 132 ){ 	let nextState = e_moveRight;} //pressed right arrow
+						if( (currKey = 82) | (currKey = 114)){	let nextState = e_reset;} //pressed r
+						if( (currKey = 81) | (currKey = 113)){ let nextState = e_quit;} // pressed q
+					}
+				}
+			}
+			
+			if( currState = e_naturalFall){
+				let psuedoRandom = psuedoRandom + 1;
+				let count_v = 0;
+				if( _smatrix.moveShape( 0, 1) = 0){
+					let nextState = e_drawTetris;
+				}else{
+					let nextState = e_merge;
+				}
+			}
+			
+			if( currState = e_dropDown){
+				while( 0 = _smatrix.moveShape( 0, 1)){}
+				let nextState = e_merge;
+			}
+			
+			if( currState = e_rotate ){
+				do _smatrix.rotateShape();
+				let nextState = e_drawTetris;
+			}
+			
+			if( currState = e_moveLeft){
+				do _smatrix.moveShape( -1, 0);
+				let nextState = e_drawTetris;
+			}
+			
+			if( currState = e_moveRight){
+				do _smatrix.moveShape( 1, 0);
+				let nextState = e_drawTetris;
+			}
+			
+			if( currState = e_merge){
+				
+				do _smatrix.merge2Floor();
+				let score = score + _smatrix.clearFullRow();
+				do Output.moveCursor(0,32);
+				do Output.printInt( score);
+				do _smatrix.spawnShape(psuedoRandom & 3);
+				if( (_smatrix.moveShape(4, 0) = 0)){
+					let nextState = e_drawTetris;
+				}else{
+					do Output.moveCursor( 4, 4);
+					do Output.printString( strGameOver);
+					do Output.printInt( score);
+					let nextState = e_gameOver;
+				}
+			}
+			
+			if( currState = e_drawTetris){
+				do _smatrix.drawTetris();
+				let nextState = e_idle;
+			}
+			
+			if( currState = e_gameOver){
+				let currKey = Keyboard.keyPressed();
+				if( (currKey = 82) | (currKey = 114)){	let nextState = e_reset;} //pressed r
+				if( (currKey = 81) | (currKey = 113)){ let nextState = e_quit;} // pressed q			
+			}
+			//do Sys.wait( 5);
+		}
+		
+		//housekeeping
+		do _smatrix.dispose();
+		do strGameOver.dispose();
+		return;
+	}
+}
