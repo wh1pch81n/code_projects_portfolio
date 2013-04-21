@@ -1,0 +1,178 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/String.jack
+
+/**
+ * Represents a String object. Implements the String type.
+ */
+class String {
+	field int length;//the current length of the string
+	field Array charray; // array of characters with a null end
+	field int max_length; //The current allocated space 
+
+    /** Constructs a new empty String with a maximum length of maxLength. */
+    constructor String new(int maxLength) {
+		if ( maxLength < 0) { do Sys.error(14); }
+		let length =  0;
+		let max_length = maxLength;
+		let charray = Array.new( max_length + 1 ); //add one to make room for null char
+		let charray[0] = 0;
+		return this;
+    }
+	
+	constructor String HARD_COPY( String len){
+		var int i;
+		let length = 0;
+		let max_length = len.length();
+		let charray = Array.new( max_length + 1);
+		let i = 0;
+		while ( i < len.length() ){
+			do appendChar(len.charAt( i));
+			let i = i + 1;
+		}
+		let charray[i] = 0;
+		return this;
+	}
+	
+    /** De-allocates the string and frees its space. */
+    method void dispose() {
+		do charray.dispose();
+		do Memory.deAlloc( this );
+		
+		return;
+    }
+
+    /** Returns the current length of this String. */
+    method int length() {
+		return length ;
+    }
+
+    /** Returns the character at location j. */
+    method char charAt(int j) {
+		if ( (j < 0) | (j > (length -1)) ) { do Sys.error(15) ;} //array index out of bounds
+		
+		return charray[j];
+    }
+
+    /** Sets the j'th character of this string to be c. */
+    method void setCharAt(int j, char c) {
+		if ( (j < 0) | (j > (length -1)) ) { do Sys.error(16) ;} //array index out of bounds
+		let charray[j] = c;
+		return;
+    }
+/*Creates a new string object based off the array argument.
+		meant for PRIVATE use only.  Creates an array that is one bigger
+		than the given array. allowing one to have room to add a new char
+		to the end.
+		@param arr an array of characters i.e. "hello\0"
+		@param len the length of arr i.e. 5
+		@return a string of plus len i.e. "hello\0\0" with len as 6
+	*/
+    /** Appends the character c to the end of this String.
+     *  Returns this string as the return value. */
+    method String appendChar(char c) {
+		var Array a;
+		var int j;
+		if( length < max_length ){ //adding within allocated array
+			let charray[length] = c;
+			let length = length + 1;
+			return this;
+		}
+		//Attempt to add beyond allocated amount will b handled by
+		//replacing the array with an array of twice the size
+		let max_length = max_length + max_length;
+		if (max_length = 0) { let max_length = 1;}
+		let a = Array.new(max_length + 1);
+		let j = 0;
+		while ( j < (length)){
+			let a[j] = charray[j];
+			let j = j + 1;
+		}
+		
+		//dispose of old array
+		do charray.dispose();
+		let charray = a; //set new array
+		
+		return appendChar(c);
+    }
+	
+    /** Erases the last character from this String. */
+    method void eraseLastChar() {
+		if( length = 0){ do Sys.error(18);} //nothing to erase sys. error
+		let length = length -1;		
+		return ;
+    }
+
+    /** Returns the integer value of this String until the first non
+     *  numeric character. */
+    method int intValue() {
+		var int i, num, temp;
+		var boolean isNeg;
+		let i = 0;
+		let num = 0;
+		let isNeg = false;
+		while( i < length){
+			
+			let num = num * 10;
+			if( charray[i] = 45 ){ // check if the first character is a minus sign
+				let isNeg = true;
+			}else{
+				let temp = charray[i] -48;
+				if( ~(((temp) < 0) | ((temp) > 9))){ //handle number
+					let num = num + temp;
+				}else{	// non numbers should end the loop
+					let i = length;
+				}
+			}
+			let i = i + 1;
+		}
+		if( isNeg ){
+			return -num;
+		}
+		return num;
+    }
+
+    /** Sets this String to hold a representation of the given number. */
+    method void setInt(int number) {
+		var String str;
+		let length = 0;
+		if( number = 0){
+			do appendChar( 48);
+			return;
+		}
+		if( number < 0) {
+			let str = "-";
+			do appendChar( str.charAt(0));
+			do str.dispose();
+			let number = -number;
+		}
+		do int2string( number );
+		return ;
+    }
+	method void int2string( int num){
+		var int lastDigit;
+		var int c;
+		if( num > 0){
+			let lastDigit = Math.mod( num, 10);
+			let c = lastDigit + 48; //character representation 
+			do int2string( num/ 10);
+			do appendChar(c);
+		}
+		return;
+	}
+    /** Returns the new line character. */
+    function char newLine() {
+		return 128; //special code for hack
+	}
+
+    /** Returns the backspace character. */
+    function char backSpace() { 
+		return 129; //special code for hack
+    }
+
+    /** Returns the double quote (") character. */
+    function char doubleQuote() {
+		return 34; // ascii for doubel quotes
+    }
+}
