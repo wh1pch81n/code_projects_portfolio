@@ -1,3 +1,5 @@
+//made by Derrick Ho
+
 #import <Foundation/Foundation.h>
 ////////////////////////////////////////
 @interface halfAdderNnary : NSObject
