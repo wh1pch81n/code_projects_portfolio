@@ -13,17 +13,18 @@
 	if (!( self = [super init])) { return nil;}
 	//initialization code in here
 	self->pairArr = @[ [NSObject new] , [NSObject new] ];
-	self->_key = self->pairArr[0];
-	self->_data = self->pairArr[1];
 	return self;
 }
 -(id) initWithKey:(NSObject*) key WithData:(NSObject*) data{
 	if( !(self = [super init])) { return nil; }
 	//initialization code in here
 	self->pairArr = @[key, data];
-	self->_key = self->pairArr[0];
-	self->_data = self->pairArr[1];
 	return self;
 }
-
+-(id) getKey{
+	return pairArr[0];
+}
+-(id) getData{
+	return pairArr[1];
+}
 @end

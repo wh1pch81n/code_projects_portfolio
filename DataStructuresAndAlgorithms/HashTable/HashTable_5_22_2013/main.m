@@ -8,25 +8,30 @@
 
 #import <Foundation/Foundation.h>
 #import "DHKeyDataPair.h"
+
+void testKeyDataPair();
 int main(int argc, const char * argv[])
 {
 
 	@autoreleasepool {
-		NSArray * arr = @[
-			[[DHKeyDataPair new] initWithKey:@"A" WithData:@"Andy"],
-	 [[DHKeyDataPair new] initWithKey:@"B" WithData:@"Brandon"],
-	 [[DHKeyDataPair new] initWithKey:@"C" WithData:@"Carmen"],
-	 [[DHKeyDataPair new] initWithKey:@"D" WithData:@"Derrick"]
-	 ];
-		for (DHKeyDataPair* kdp in arr) {
-			printf("%s, ", [(NSString*)kdp.key UTF8String]);
-		}
-		printf("\n");
-		
-		for (DHKeyDataPair* kdp in arr) {
-			printf("%s, ", [(NSString*)kdp.data UTF8String]);
-		}
+		testKeyDataPair();
 	}
     return 0;
 }
-
+void testKeyDataPair(){
+	NSArray * arr = @[
+				   [[DHKeyDataPair new] initWithKey:@"A" WithData:@"Andy"],
+	   [[DHKeyDataPair new] initWithKey:@"B" WithData:@"Brandon"],
+	   [[DHKeyDataPair new] initWithKey:@"C" WithData:@"Carmen"],
+	   [[DHKeyDataPair new] initWithKey:@"D" WithData:@"Derrick"]
+	   ];
+	for (DHKeyDataPair* kdp in arr) {
+		printf("%s, ", [[kdp getKey] UTF8String]);
+	}
+	printf("\n");
+	
+	for (DHKeyDataPair* kdp in arr) {
+		printf("%s, ", [[kdp getData] UTF8String]);
+	}
+	
+}

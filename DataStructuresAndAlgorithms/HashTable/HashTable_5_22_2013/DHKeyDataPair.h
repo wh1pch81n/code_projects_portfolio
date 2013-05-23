@@ -11,8 +11,8 @@
 @interface DHKeyDataPair : NSObject{
 	NSArray * pairArr;
 }
-@property ( strong, nonatomic) NSObject * key;
-@property ( strong, nonatomic) NSObject * data;
 -(id) init;
 -(id) initWithKey:(NSObject*) key WithData:(NSObject*) data;
+-(id) getKey;
+-(id) getData;
 @end
