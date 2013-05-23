@@ -10,10 +10,7 @@
 
 @implementation DHKeyDataPair
 -(id) init{
-	if (!( self = [super init])) { return nil;}
-	//initialization code in here
-	self->pairArr = @[ [NSObject new] , [NSObject new] ];
-	return self;
+	return [self initWithKey:[NSObject new] WithData:[NSObject new]];
 }
 -(id) initWithKey:(NSObject*) key WithData:(NSObject*) data{
 	if( !(self = [super init])) { return nil; }
