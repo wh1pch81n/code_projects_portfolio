@@ -20,10 +20,10 @@ int main(int argc, const char * argv[])
 }
 void testKeyDataPair(){
 	NSArray * arr = @[
-				   [[DHKeyDataPair new] initWithKey:@"A" WithData:@"Andy"],
-	   [[DHKeyDataPair new] initWithKey:@"B" WithData:@"Brandon"],
-	   [[DHKeyDataPair new] initWithKey:@"C" WithData:@"Carmen"],
-	   [[DHKeyDataPair new] initWithKey:@"D" WithData:@"Derrick"]
+				   [[DHKeyDataPair alloc] initWithKey:@"A" WithData:@"Andy"],
+	   [[DHKeyDataPair alloc] initWithKey:@"B" WithData:@"Brandon"],
+	   [[DHKeyDataPair alloc] initWithKey:@"C" WithData:@"Carmen"],
+	   [[DHKeyDataPair alloc] initWithKey:@"D" WithData:@"Derrick"]
 	   ];
 	for (DHKeyDataPair* kdp in arr) {
 		printf("%s, ", [[kdp getKey] UTF8String]);
