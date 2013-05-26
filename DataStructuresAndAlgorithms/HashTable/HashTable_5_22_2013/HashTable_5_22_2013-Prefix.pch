@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'HashTable_5_22_2013' target in the 'HashTable_5_22_2013' project
-//
-
-#ifdef __OBJC__
-	#import <Foundation/Foundation.h>
-#endif

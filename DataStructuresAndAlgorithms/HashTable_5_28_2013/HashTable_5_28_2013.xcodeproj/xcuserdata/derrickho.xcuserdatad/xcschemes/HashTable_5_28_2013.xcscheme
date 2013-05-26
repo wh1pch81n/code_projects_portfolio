@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FDE3F85174DB13600018315"
-               BuildableName = "HashTable_5_22_2013"
-               BlueprintName = "HashTable_5_22_2013"
-               ReferencedContainer = "container:HashTable.xcodeproj">
+               BlueprintIdentifier = "7FD23CC0175295A0003E260A"
+               BuildableName = "HashTable_5_28_2013"
+               BlueprintName = "HashTable_5_28_2013"
+               ReferencedContainer = "container:HashTable_5_28_2013.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FDE3F85174DB13600018315"
-            BuildableName = "HashTable_5_22_2013"
-            BlueprintName = "HashTable_5_22_2013"
-            ReferencedContainer = "container:HashTable.xcodeproj">
+            BlueprintIdentifier = "7FD23CC0175295A0003E260A"
+            BuildableName = "HashTable_5_28_2013"
+            BlueprintName = "HashTable_5_28_2013"
+            ReferencedContainer = "container:HashTable_5_28_2013.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FDE3F85174DB13600018315"
-            BuildableName = "HashTable_5_22_2013"
-            BlueprintName = "HashTable_5_22_2013"
-            ReferencedContainer = "container:HashTable.xcodeproj">
+            BlueprintIdentifier = "7FD23CC0175295A0003E260A"
+            BuildableName = "HashTable_5_28_2013"
+            BlueprintName = "HashTable_5_28_2013"
+            ReferencedContainer = "container:HashTable_5_28_2013.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FDE3F85174DB13600018315"
-            BuildableName = "HashTable_5_22_2013"
-            BlueprintName = "HashTable_5_22_2013"
-            ReferencedContainer = "container:HashTable.xcodeproj">
+            BlueprintIdentifier = "7FD23CC0175295A0003E260A"
+            BuildableName = "HashTable_5_28_2013"
+            BlueprintName = "HashTable_5_28_2013"
+            ReferencedContainer = "container:HashTable_5_28_2013.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

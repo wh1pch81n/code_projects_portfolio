@@ -1,8 +1,8 @@
 //
 //  DHHash.h
-//  HashTable
+//  HashTable_5_28_2013
 //
-//  Created by Derrick Ho on 5/22/13.
+//  Created by Derrick Ho on 5/26/13.
 //  Copyright (c) 2013 Derrick Ho. All rights reserved.
 //
 
