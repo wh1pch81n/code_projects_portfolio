@@ -26,12 +26,12 @@ void testKeyDataPair(){
 	   [[DHKeyDataPair alloc] initWithKey:@"D" WithData:@"Derrick"]
 	   ];
 	for (DHKeyDataPair* kdp in arr) {
-		printf("%s, ", [[kdp getKey] UTF8String]);
+		printf("%s, ", [[kdp key] UTF8String]);
 	}
 	printf("\n");
 	
 	for (DHKeyDataPair* kdp in arr) {
-		printf("%s, ", [[kdp getData] UTF8String]);
+		printf("%s, ", [[kdp data] UTF8String]);
 	}
 	
 }
