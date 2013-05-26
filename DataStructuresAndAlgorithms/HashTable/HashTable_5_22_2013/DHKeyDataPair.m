@@ -17,7 +17,6 @@
 	//initialization code in here
 	[self setKey:key];
 	[self setData:data];
-	//self->pairArr = @[key, data];
 	return self;
 }
 
