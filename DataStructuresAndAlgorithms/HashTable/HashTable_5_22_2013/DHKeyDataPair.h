@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DHKeyDataPair : NSObject{
-	NSArray * pairArr;
-}
+@interface DHKeyDataPair : NSObject
+@property(strong, nonatomic) id key;
+@property(strong, nonatomic) id data;
 -(id) init;
 -(id) initWithKey:(NSObject*) key WithData:(NSObject*) data;
--(id) getKey;
--(id) getData;
 @end
