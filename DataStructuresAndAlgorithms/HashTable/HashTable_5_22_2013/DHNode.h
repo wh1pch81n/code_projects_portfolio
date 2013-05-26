@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface DHNode : NSObject
-
+#import "DHKeyDataPair.h"
+@interface DHNode : DHKeyDataPair
+@property( strong, nonatomic) DHNode * nextDHNode;
 @end
