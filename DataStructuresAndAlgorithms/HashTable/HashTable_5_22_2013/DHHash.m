@@ -7,7 +7,7 @@
 //
 
 #import "DHHash.h"
-#import "DHNode.h"
+#import "DHKeyDataPair.h"
 
 @implementation DHHash
 -(id)initWithSize:(NSInteger)size{
@@ -15,8 +15,10 @@
 		return nil;
 	}
 	//initialization stuff
-	hashTable = [NSMutableArray arrayWithObjects:nil
-										   count:size];
+	hashTable = [NSMutableArray new];
+	for (int i = 0; i < size ; ++i) {
+		hashTable[i] = [NSMutableArray new];
+	}
 	return self;
 }
 -(NSNumber *)hashFunction:(NSString *)key{
@@ -28,28 +30,20 @@
 	return [NSNumber numberWithInteger:sum % primeNumber];
 }
 -(void)addIntoHashAKey:(NSString *)key AData:(id)data{
-	DHNode *node = [[DHNode alloc] initWithKey:key
+	DHKeyDataPair *node = [[DHKeyDataPair alloc] initWithKey:key
 									   WithData:data];
 	NSNumber *ind = [self hashFunction:key];
 	NSInteger index = [ind integerValue];
-	if ( hashTable[ index] == nil) {//index is empty so just fill it
-		hashTable[ index] = node;
-	}else{
-		//there is a possible linked list so I must go through each
-		DHNode *cursor = hashTable[ index];
-		while ( YES) {
-			if ( [[cursor key] isEqualToString:key]){
-				//if the key is the same, then replace the data
-				[cursor setData:data];
-				break;
-			}else if ([cursor nextDHNode] == nil) {
-				//add to the end
-				[cursor setNextDHNode:node];
-				break;
-			}
-			//move to the next
-			cursor = [cursor nextDHNode];
+	
+	bool DataHasBeenSet = NO;
+	for (DHKeyDataPair *cursor in hashTable[index]){
+		if ([[cursor key] isEqualToString:key]) {
+			[cursor setData:data];
+			DataHasBeenSet = YES;
 		}
+	}
+	if (DataHasBeenSet == NO ) {
+		[hashTable[index] addObject:node];
 	}
 }
 -(id)findDataFromLList:(NSString *)key{
