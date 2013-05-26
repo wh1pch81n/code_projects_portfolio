@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DHHash : NSObject
-
+@interface DHHash : NSObject{
+	NSMutableArray* hashTable;
+}
+-(id)initWithSize:(NSInteger)size;
+-(void)addIntoHashAKey:(NSString *)key AData:(id)data;
+-(id)findDataFromKey:(NSString *)key;
 @end
