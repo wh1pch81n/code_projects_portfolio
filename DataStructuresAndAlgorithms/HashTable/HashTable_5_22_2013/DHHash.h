@@ -10,8 +10,10 @@
 
 @interface DHHash : NSObject{
 	NSMutableArray* hashTable;
+	NSInteger size;
+	NSInteger prime;
 }
--(id)initWithSize:(NSInteger)size;
+-(id)initWithSize:(NSInteger)size prime:(NSInteger) prime;
 -(void)addIntoHashAKey:(NSString *)key AData:(id)data;
 -(id)findDataFromKey:(NSString *)key;
 @end

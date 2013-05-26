@@ -10,33 +10,35 @@
 #import "DHKeyDataPair.h"
 
 @implementation DHHash
--(id)initWithSize:(NSInteger)size{
+-(id)initWithSize:(NSInteger)s prime:(NSInteger)p{
 	if (!(self = [super init])) {
 		return nil;
 	}
 	//initialization stuff
-	hashTable = [NSMutableArray new];
-	for (int i = 0; i < size ; ++i) {
-		hashTable[i] = [NSMutableArray new];
+	self->size = s;
+	self->prime = p;
+	self->hashTable = [NSMutableArray new];
+	for (int i = 0; i < self->size ; ++i) {
+		[hashTable addObject:[NSMutableArray new]];
 	}
 	return self;
 }
 -(NSNumber *)hashFunction:(NSString *)key{
-	const long primeNumber = 3571;//101;
 	NSInteger sum = 0;
 	for (int i = 0; i < [key length]; ++i) {
 		sum += [key characterAtIndex:i ];
 	}
-	return [NSNumber numberWithInteger:sum % primeNumber];
+	return [NSNumber numberWithInteger:(sum * self->prime) % self->size];
 }
 -(void)addIntoHashAKey:(NSString *)key AData:(id)data{
 	DHKeyDataPair *node = [[DHKeyDataPair alloc] initWithKey:key
 									   WithData:data];
 	NSNumber *ind = [self hashFunction:key];
-	NSInteger index = [ind integerValue];
+	NSInteger index = [ind integerValue] ;
 	
 	bool DataHasBeenSet = NO;
-	for (DHKeyDataPair *cursor in hashTable[index]){
+	NSMutableArray *listOfPairs = hashTable[index];
+	for (DHKeyDataPair *cursor in listOfPairs){
 		if ([[cursor key] isEqualToString:key]) {
 			[cursor setData:data];
 			DataHasBeenSet = YES;
@@ -46,10 +48,14 @@
 		[hashTable[index] addObject:node];
 	}
 }
--(id)findDataFromLList:(NSString *)key{
-	
-}
 -(id)findDataFromKey:(NSString *)key{
-	
+	NSInteger index = [[self hashFunction:key] integerValue];
+	NSMutableArray *listOfPairs = hashTable[index];
+	for (DHKeyDataPair *cursor in listOfPairs) {
+		if ([[cursor key] isEqualToString:key]) {
+			return [cursor data];
+		}
+	}
+	return nil;
 }
 @end
