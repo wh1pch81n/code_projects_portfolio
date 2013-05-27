@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CapitalizeFirstLetterOfWords' target in the 'CapitalizeFirstLetterOfWords' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif

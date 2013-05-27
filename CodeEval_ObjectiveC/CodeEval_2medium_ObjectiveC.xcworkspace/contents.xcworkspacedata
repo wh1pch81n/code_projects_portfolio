@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:PointInCircle/PointInCircle.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TrailingString/TrailingString.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DecimalToBinary/DecimalToBinary.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DHCalculator/DHCalculator.xcodeproj">
+   </FileRef>
+</Workspace>

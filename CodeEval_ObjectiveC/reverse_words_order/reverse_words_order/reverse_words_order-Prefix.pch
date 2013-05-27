@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'reverse_words_order' target in the 'reverse_words_order' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif

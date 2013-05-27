@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:dictionaryTest/dictionaryTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FindAWriter/FindAWriter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SwapCase/SwapCase.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:panagrams/panagrams.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CapitalizeFirstLetterOfWords/CapitalizeFirstLetterOfWords.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:penUltimateWord/penUltimateWord.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:OddNumbers/OddNumbers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SumOfNumbersFromFile/SumOfIntegersFromFile.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MultiplicationTable/MultiplicationTable.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:fibonacciSeries/fibonacciSeries.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:sumOfDigits/sumOfDigits.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:lowerCase/lowerCase.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:bitPositions/bitPositions.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:multiplesOfANumber/multiplesOfANumber.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:reverse_words_order/reverse_words_order.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SumOfPalinDromes/SumOfPrimes.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FizzBuzz_Objc/FizzBuzz_Objc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PrimePalindrome/PrimePalindrome.xcodeproj">
+   </FileRef>
+</Workspace>
