@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'TrailingString' target in the 'TrailingString' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
