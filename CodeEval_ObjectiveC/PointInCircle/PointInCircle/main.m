@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#define CGFloat float
+#define CGPoint MYPoint
+#define CGPointMake MYPointMake
 ////////////////////////////////////////////////////
+struct MYPoint{
+	float x,y;
+};
+typedef struct MYPoint MYPoint;
 struct CRP{
 	CGPoint center, point;
 	CGFloat radius;
@@ -15,6 +22,9 @@ struct CRP{
 typedef struct CRP CRP;
 ////////////////////////////////////////////////////
 CRP makeCRP( NSString *line);
+MYPoint MYPointMake(NSInteger x, NSInteger y){
+	return (MYPoint){.x=x, .y=y};
+}
 ////////////////////////////////////////////////////
 @interface NSString (EASYFILEREADER)
 +(NSArray *) FileArrayFromPath:(NSString *) path;
@@ -47,9 +57,9 @@ int main(int argc, const char * argv[])
 ////////////////////////////////////////////////////
 CRP makeCRP( NSString *line){
 	NSArray *a = [line componentsSeparatedByString:@";"];
-	NSString *c = a[0];
-	NSString *r = a[1];
-	NSString *p = a[2];
+	NSString *c = [a objectAtIndex:0];
+	NSString *r = [a objectAtIndex:1];
+	NSString *p = [a objectAtIndex:2];
 	CRP crp_v;
 	crp_v.center = CGPointMake([[c substringFromIndex:[c rangeOfString:@"("].location +1] floatValue],
 							   [[c substringFromIndex:[c rangeOfString:@","].location +1] floatValue]);

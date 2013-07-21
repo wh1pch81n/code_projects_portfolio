@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DHNode : NSObject
-
+@property (strong, nonatomic) NSNumber *num;
+@property (strong, nonatomic) DHNode *left;
+@property (strong, nonatomic) DHNode *right;
+-(id) initWithNum:(NSNumber *)num NodeLeft:(DHNode *)left NodeRight:(DHNode *) right;
 @end

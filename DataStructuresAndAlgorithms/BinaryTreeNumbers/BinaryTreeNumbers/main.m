@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DHBinaryTree.h"
 int main(int argc, const char * argv[])
 {
 
 	@autoreleasepool {
-	    
-	    // insert code here...
-	    NSLog(@"Hello, World!");
-	    
+		DHBinaryTree *tree =  [DHBinaryTree new];
+		for (int i = 0; i < 10; ++i) {
+			[tree insertNumber:(arc4random()*101) % 100];
+		}
+		[tree printTree];
 	}
     return 0;
 }

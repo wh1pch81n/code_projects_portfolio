@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DHNode.h"
 @interface DHBinaryTree : NSObject
-
+- (void) insertNumber:(NSInteger) num;
+- (void) printTree;
 @end
