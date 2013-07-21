@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BinaryTreeNumbers' target in the 'BinaryTreeNumbers' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif

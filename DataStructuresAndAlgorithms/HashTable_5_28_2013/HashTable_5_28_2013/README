@@ -1,0 +1,10 @@
+Documentaion
+
+lab Purpose
+	To implement a simple hash table using a naive hash function
+Key components
+	DHKeyDataPair:  a node that Holds A searchable key with a data in it
+	DHHash:  An array of dhkeydatapairs.  you can search for data with the key
+	NSMutableArray+Search: Allows Hash to be searchable
+Result
+	Hash function seems to be bad.  It clumps the ddata into the first rather than even ditribution

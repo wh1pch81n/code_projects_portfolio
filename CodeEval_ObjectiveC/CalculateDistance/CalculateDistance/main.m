@@ -7,13 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef struct{
+	float x,y;
+}MyPoint;
 
-@interface DHPoint: NSObject
-@property (readonly) 	CGPoint Pt;
+MyPoint MyPointMake(NSInteger x, NSInteger y){
+	MyPoint p = {.x=x, .y=y};
+	return p;
+}
+
+@interface DHPoint: NSObject{
+	MyPoint _Pt;
+}
+@property (readonly) 	MyPoint Pt;
 -(id)initWithPointInString:(NSString *) pt;
 -(NSInteger)distanceBetweenTwoPoints:(DHPoint *) pt;
 @end
 @implementation DHPoint
+@synthesize Pt = _Pt;
 -(id)initWithPointInString:(NSString *) pt{
 	if (! (self = [super init])) {
 		return nil;
@@ -23,7 +34,7 @@
 	pt = [pt stringByReplacingOccurrencesOfString:@")" withString:@""];
 	pt = [pt stringByReplacingOccurrencesOfString:@" " withString:@""];
 	NSArray *xy = [pt componentsSeparatedByString:@","];
-	self->_Pt = CGPointMake([xy[0] integerValue], [xy[1] integerValue]);
+	self->_Pt = MyPointMake([[xy objectAtIndex:0] integerValue], [[xy objectAtIndex:1] integerValue]);
 	return self;
 }
 -(NSInteger)distanceBetweenTwoPoints:(DHPoint *) pt{
