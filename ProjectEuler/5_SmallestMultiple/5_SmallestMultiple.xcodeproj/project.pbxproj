@@ -10,6 +10,8 @@
 		7F5C46FD17A35E2300644F33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C46FC17A35E2300644F33 /* Foundation.framework */; };
 		7F5C470017A35E2300644F33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C46FF17A35E2300644F33 /* main.m */; };
 		7F5C470417A35E2300644F33 /* __SmallestMultiple.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F5C470317A35E2300644F33 /* __SmallestMultiple.1 */; };
+		7F5C470C17A5748F00644F33 /* DHLowestCommonMultiple.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C470B17A5748F00644F33 /* DHLowestCommonMultiple.m */; };
+		7F5C471017A57A3300644F33 /* DHPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C470F17A57A3300644F33 /* DHPair.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,11 @@
 		7F5C46FF17A35E2300644F33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F5C470217A35E2300644F33 /* 5_SmallestMultiple-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "5_SmallestMultiple-Prefix.pch"; sourceTree = "<group>"; };
 		7F5C470317A35E2300644F33 /* __SmallestMultiple.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = __SmallestMultiple.1; sourceTree = "<group>"; };
+		7F5C470A17A5748F00644F33 /* DHLowestCommonMultiple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLowestCommonMultiple.h; sourceTree = "<group>"; };
+		7F5C470B17A5748F00644F33 /* DHLowestCommonMultiple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHLowestCommonMultiple.m; sourceTree = "<group>"; };
+		7F5C470D17A5765600644F33 /* listOfPrimes10k.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = listOfPrimes10k.h; sourceTree = "<group>"; };
+		7F5C470E17A57A3300644F33 /* DHPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHPair.h; sourceTree = "<group>"; };
+		7F5C470F17A57A3300644F33 /* DHPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHPair.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				7F5C46FF17A35E2300644F33 /* main.m */,
+				7F5C470D17A5765600644F33 /* listOfPrimes10k.h */,
+				7F5C470A17A5748F00644F33 /* DHLowestCommonMultiple.h */,
+				7F5C470B17A5748F00644F33 /* DHLowestCommonMultiple.m */,
+				7F5C470E17A57A3300644F33 /* DHPair.h */,
+				7F5C470F17A57A3300644F33 /* DHPair.m */,
 				7F5C470317A35E2300644F33 /* __SmallestMultiple.1 */,
 				7F5C470117A35E2300644F33 /* Supporting Files */,
 			);
@@ -140,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5C470017A35E2300644F33 /* main.m in Sources */,
+				7F5C470C17A5748F00644F33 /* DHLowestCommonMultiple.m in Sources */,
+				7F5C471017A57A3300644F33 /* DHPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
