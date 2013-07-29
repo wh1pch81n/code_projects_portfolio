@@ -1,0 +1,249 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F4D0104175A96970007412C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0103175A96970007412C /* Foundation.framework */; };
+		7F4D0107175A96970007412C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4D0106175A96970007412C /* main.m */; };
+		7F4D010B175A96970007412C /* CalculateDistance.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F4D010A175A96970007412C /* CalculateDistance.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7F4D00FE175A96970007412C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				7F4D010B175A96970007412C /* CalculateDistance.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7F4D0100175A96970007412C /* CalculateDistance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CalculateDistance; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F4D0103175A96970007412C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F4D0106175A96970007412C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F4D0109175A96970007412C /* CalculateDistance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalculateDistance-Prefix.pch"; sourceTree = "<group>"; };
+		7F4D010A175A96970007412C /* CalculateDistance.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CalculateDistance.1; sourceTree = "<group>"; };
+		7F4D0111175A9A510007412C /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F4D00FD175A96970007412C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F4D0104175A96970007412C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F4D00F7175A96970007412C = {
+			isa = PBXGroup;
+			children = (
+				7F4D0105175A96970007412C /* CalculateDistance */,
+				7F4D0102175A96970007412C /* Frameworks */,
+				7F4D0101175A96970007412C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F4D0101175A96970007412C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F4D0100175A96970007412C /* CalculateDistance */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F4D0102175A96970007412C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F4D0103175A96970007412C /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F4D0105175A96970007412C /* CalculateDistance */ = {
+			isa = PBXGroup;
+			children = (
+				7F4D0106175A96970007412C /* main.m */,
+				7F4D0111175A9A510007412C /* File */,
+				7F4D010A175A96970007412C /* CalculateDistance.1 */,
+				7F4D0108175A96970007412C /* Supporting Files */,
+			);
+			path = CalculateDistance;
+			sourceTree = "<group>";
+		};
+		7F4D0108175A96970007412C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F4D0109175A96970007412C /* CalculateDistance-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7F4D00FF175A96970007412C /* CalculateDistance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F4D010E175A96970007412C /* Build configuration list for PBXNativeTarget "CalculateDistance" */;
+			buildPhases = (
+				7F4D00FC175A96970007412C /* Sources */,
+				7F4D00FD175A96970007412C /* Frameworks */,
+				7F4D00FE175A96970007412C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalculateDistance;
+			productName = CalculateDistance;
+			productReference = 7F4D0100175A96970007412C /* CalculateDistance */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F4D00F8175A96970007412C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Derrick Ho";
+			};
+			buildConfigurationList = 7F4D00FB175A96970007412C /* Build configuration list for PBXProject "CalculateDistance" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F4D00F7175A96970007412C;
+			productRefGroup = 7F4D0101175A96970007412C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F4D00FF175A96970007412C /* CalculateDistance */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F4D00FC175A96970007412C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F4D0107175A96970007412C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F4D010C175A96970007412C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7F4D010D175A96970007412C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7F4D010F175A96970007412C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalculateDistance/CalculateDistance-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7F4D0110175A96970007412C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalculateDistance/CalculateDistance-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F4D00FB175A96970007412C /* Build configuration list for PBXProject "CalculateDistance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F4D010C175A96970007412C /* Debug */,
+				7F4D010D175A96970007412C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F4D010E175A96970007412C /* Build configuration list for PBXNativeTarget "CalculateDistance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F4D010F175A96970007412C /* Debug */,
+				7F4D0110175A96970007412C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F4D00F8175A96970007412C /* Project object */;
+}
