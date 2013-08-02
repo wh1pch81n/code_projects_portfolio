@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:8_largestProductInSeries/8_largestProductInSeries.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:3_largestPrimeFactor/3_largestPrimeFactor.xcodeproj">
    </FileRef>
    <FileRef

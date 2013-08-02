@@ -39,19 +39,14 @@
 int main(int argc, const char * argv[])
 {
 	@autoreleasepool {
-		//NSLog(@"%@", [DHSmallestMultiple SmallestNumDivisibleByAllNumInRange:NSMakeRange(1, 20)]);
-		DHLowestCommonMultiple *lcm = [[DHLowestCommonMultiple alloc] initWithArrayOfNumbers:
-		 @[@(1),
-		 @(2),
-		 @(3),
-		 @(4),
-		 @(5),
-		 @(6),
-		 @(7),
-		 @(8),
-		 @(9),
-		 @(10)]];
-		NSLog(@"%@", lcm.lcm);
+		//NSLog(@"brute:  %@", [DHSmallestMultiple SmallestNumDivisibleByAllNumInRange:NSMakeRange(1, 20)]);
+		NSMutableArray *arrOfNum = [NSMutableArray new];
+		NSRange r = NSMakeRange(1, 20);
+		for (int i = r.location; i < r.location + r.length; ++i) {
+			[arrOfNum addObject:@(i)];
+		}
+		DHLowestCommonMultiple *lcm = [[DHLowestCommonMultiple alloc] initWithArrayOfNumbers:arrOfNum];
+		NSLog(@"Fast:  %@", lcm.lcm);
 	}
     return 0;
 }
