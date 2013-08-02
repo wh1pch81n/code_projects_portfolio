@@ -1,0 +1,249 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F8AD22B1729D2B6003CB20D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8AD22A1729D2B6003CB20D /* Foundation.framework */; };
+		7F8AD22E1729D2B6003CB20D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8AD22D1729D2B6003CB20D /* main.m */; };
+		7F8AD2321729D2B6003CB20D /* CapitalizeFirstLetterOfWords.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7F8AD2311729D2B6003CB20D /* CapitalizeFirstLetterOfWords.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7F8AD2251729D2B6003CB20D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				7F8AD2321729D2B6003CB20D /* CapitalizeFirstLetterOfWords.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7F8AD2271729D2B6003CB20D /* CapitalizeFirstLetterOfWords */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CapitalizeFirstLetterOfWords; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8AD22A1729D2B6003CB20D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7F8AD22D1729D2B6003CB20D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F8AD2301729D2B6003CB20D /* CapitalizeFirstLetterOfWords-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CapitalizeFirstLetterOfWords-Prefix.pch"; sourceTree = "<group>"; };
+		7F8AD2311729D2B6003CB20D /* CapitalizeFirstLetterOfWords.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CapitalizeFirstLetterOfWords.1; sourceTree = "<group>"; };
+		7F8AD23A1729D468003CB20D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; name = File; path = ../../../CodeEval_CPP/CapitalizeFirstLetterOfWords/CapitalizeFirstLetterOfWords/File; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F8AD2241729D2B6003CB20D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8AD22B1729D2B6003CB20D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F8AD21E1729D2B6003CB20D = {
+			isa = PBXGroup;
+			children = (
+				7F8AD22C1729D2B6003CB20D /* CapitalizeFirstLetterOfWords */,
+				7F8AD2291729D2B6003CB20D /* Frameworks */,
+				7F8AD2281729D2B6003CB20D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F8AD2281729D2B6003CB20D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F8AD2271729D2B6003CB20D /* CapitalizeFirstLetterOfWords */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F8AD2291729D2B6003CB20D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F8AD22A1729D2B6003CB20D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F8AD22C1729D2B6003CB20D /* CapitalizeFirstLetterOfWords */ = {
+			isa = PBXGroup;
+			children = (
+				7F8AD22D1729D2B6003CB20D /* main.m */,
+				7F8AD23A1729D468003CB20D /* File */,
+				7F8AD2311729D2B6003CB20D /* CapitalizeFirstLetterOfWords.1 */,
+				7F8AD22F1729D2B6003CB20D /* Supporting Files */,
+			);
+			path = CapitalizeFirstLetterOfWords;
+			sourceTree = "<group>";
+		};
+		7F8AD22F1729D2B6003CB20D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F8AD2301729D2B6003CB20D /* CapitalizeFirstLetterOfWords-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7F8AD2261729D2B6003CB20D /* CapitalizeFirstLetterOfWords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F8AD2351729D2B6003CB20D /* Build configuration list for PBXNativeTarget "CapitalizeFirstLetterOfWords" */;
+			buildPhases = (
+				7F8AD2231729D2B6003CB20D /* Sources */,
+				7F8AD2241729D2B6003CB20D /* Frameworks */,
+				7F8AD2251729D2B6003CB20D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CapitalizeFirstLetterOfWords;
+			productName = CapitalizeFirstLetterOfWords;
+			productReference = 7F8AD2271729D2B6003CB20D /* CapitalizeFirstLetterOfWords */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F8AD21F1729D2B6003CB20D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Derrick Ho";
+			};
+			buildConfigurationList = 7F8AD2221729D2B6003CB20D /* Build configuration list for PBXProject "CapitalizeFirstLetterOfWords" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F8AD21E1729D2B6003CB20D;
+			productRefGroup = 7F8AD2281729D2B6003CB20D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F8AD2261729D2B6003CB20D /* CapitalizeFirstLetterOfWords */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F8AD2231729D2B6003CB20D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8AD22E1729D2B6003CB20D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F8AD2331729D2B6003CB20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7F8AD2341729D2B6003CB20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7F8AD2361729D2B6003CB20D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapitalizeFirstLetterOfWords/CapitalizeFirstLetterOfWords-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7F8AD2371729D2B6003CB20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapitalizeFirstLetterOfWords/CapitalizeFirstLetterOfWords-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F8AD2221729D2B6003CB20D /* Build configuration list for PBXProject "CapitalizeFirstLetterOfWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8AD2331729D2B6003CB20D /* Debug */,
+				7F8AD2341729D2B6003CB20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F8AD2351729D2B6003CB20D /* Build configuration list for PBXNativeTarget "CapitalizeFirstLetterOfWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8AD2361729D2B6003CB20D /* Debug */,
+				7F8AD2371729D2B6003CB20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F8AD21F1729D2B6003CB20D /* Project object */;
+}

@@ -66,11 +66,10 @@
 		newArr = [self reduceArray:currArr
 					withPrimeIndex:primeIndex];
 		if ([newArr isEqualToArray:currArr]) {
-			if (primeIndex) {//buggy
-				primeIndex--;
-			} else {
-				primeIndex++;
-			}
+			++primeIndex;
+			if (cListOfPrimes10k[primeIndex] == [[self maxPrime] intValue]) {//buggy
+				primeIndex = 0;
+			} 
 		} else {
 			NSNumber *newRightOfPair = @([[self.pairPrimeCount[primeIndex] rightOfPair] integerValue] +1);
 			[[[self pairPrimeCount] objectAtIndex:primeIndex] setRightOfPair:newRightOfPair];
@@ -78,7 +77,6 @@
 		//tick
 		currArr = newArr;
 		newArr =nil;
-		NSLog(@"%@", currArr);
 	}
 }
 - (BOOL)isArrayOfOnes:(NSArray *)arr {
@@ -106,6 +104,10 @@
 	return newArr;
 }
 - (void)calcLowestCommonMultiple {
-	#warning needs implementation
+	int prod = 1;
+	for (DHPair *p in [self pairPrimeCount]) {
+		prod *= pow([[p leftOfPair] intValue], [[p rightOfPair] intValue]);
+	}
+	[self setLcm:@(prod)];
 }
 @end

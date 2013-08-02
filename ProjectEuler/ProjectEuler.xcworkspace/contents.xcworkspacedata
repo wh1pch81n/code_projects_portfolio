@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:8_largestProductInSeries/8_largestProductInSeries.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3_largestPrimeFactor/3_largestPrimeFactor.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:4_LargestPalindromeProduct/4_LargestPalindromeProduct.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:5_SmallestMultiple/5_SmallestMultiple.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:6_Sum_Square_diff/6_Sum_Square_diff.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MultiplesOf3And5/2_sumEvenFibs/2_sumEvenFibs.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MultiplesOf3And5/MultiplesOf3And5.xcodeproj">
+   </FileRef>
+</Workspace>
