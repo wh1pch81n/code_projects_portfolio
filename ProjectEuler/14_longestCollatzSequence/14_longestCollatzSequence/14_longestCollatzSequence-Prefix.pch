@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the '14_longestCollatzSequence' target in the '14_longestCollatzSequence' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif

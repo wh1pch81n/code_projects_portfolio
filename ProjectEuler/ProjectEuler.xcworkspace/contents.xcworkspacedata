@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:14_longestCollatzSequence/14_longestCollatzSequence.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:13_largeSum/13_largeSum.xcodeproj">
    </FileRef>
    <FileRef
