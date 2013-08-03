@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the '13_largeSum' target in the '13_largeSum' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
