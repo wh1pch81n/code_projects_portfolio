@@ -81,9 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				7F5C46FF17A35E2300644F33 /* main.m */,
-				7F5C470D17A5765600644F33 /* listOfPrimes10k.h */,
 				7F5C470A17A5748F00644F33 /* DHLowestCommonMultiple.h */,
 				7F5C470B17A5748F00644F33 /* DHLowestCommonMultiple.m */,
+				7F5C470D17A5765600644F33 /* listOfPrimes10k.h */,
 				7F5C470E17A57A3300644F33 /* DHPair.h */,
 				7F5C470F17A57A3300644F33 /* DHPair.m */,
 				7F5C470317A35E2300644F33 /* __SmallestMultiple.1 */,
@@ -256,6 +256,7 @@
 				7F5C470917A35E2300644F33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

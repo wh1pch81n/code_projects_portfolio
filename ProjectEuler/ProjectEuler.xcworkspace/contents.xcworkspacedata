@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:12_highlydivisibletriangle/12_highlydivisibletriangle.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:9_pythagorean_Triplet/9_pythagorean_Triplet.xcodeproj">
    </FileRef>
    <FileRef
