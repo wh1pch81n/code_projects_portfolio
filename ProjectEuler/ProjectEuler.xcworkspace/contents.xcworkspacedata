@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:11_largestProductInGrid/11_largestProductInGrid.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:9_pythagorean_Triplet/9_pythagorean_Triplet.xcodeproj">
    </FileRef>
    <FileRef
