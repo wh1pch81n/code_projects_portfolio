@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:12.1_highlyDivisible/12.1_highlyDivisible.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:12_highlydivisibletriangle/12_highlydivisibletriangle.xcodeproj">
    </FileRef>
    <FileRef
