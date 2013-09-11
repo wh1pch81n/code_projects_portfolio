@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CycleDetection/CycleDetection.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PointInCircle/PointInCircle.xcodeproj">
    </FileRef>
    <FileRef
