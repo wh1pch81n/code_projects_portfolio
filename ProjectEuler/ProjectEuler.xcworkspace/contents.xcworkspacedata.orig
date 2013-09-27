@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+<<<<<<< HEAD
+      location = "group:12.1_highlyDivisible/12.1_highlyDivisible.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:12_highlydivisibletriangle/12_highlydivisibletriangle.xcodeproj">
+=======
+      location = "group:11_largestProductInGrid/11_largestProductInGrid.xcodeproj">
+>>>>>>> origin/master
+   </FileRef>
+   <FileRef
+      location = "group:9_pythagorean_Triplet/9_pythagorean_Triplet.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:14_longestCollatzSequence/14_longestCollatzSequence.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:13_largeSum/13_largeSum.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:8_largestProductInSeries/8_largestProductInSeries.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:3_largestPrimeFactor/3_largestPrimeFactor.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:4_LargestPalindromeProduct/4_LargestPalindromeProduct.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:5_SmallestMultiple/5_SmallestMultiple.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:6_Sum_Square_diff/6_Sum_Square_diff.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MultiplesOf3And5/2_sumEvenFibs/2_sumEvenFibs.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MultiplesOf3And5/MultiplesOf3And5.xcodeproj">
+   </FileRef>
+</Workspace>
