@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PackageProblem/PackageProblem.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:UglyNumber/UglyNumber.xcodeproj">
    </FileRef>
 </Workspace>
